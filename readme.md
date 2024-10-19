@@ -1,10 +1,23 @@
-![Profile Views](https://komarev.com/ghpvc/?username=nick2bad4u&color=blueviolet&style=flat-square) 
-![Followers](https://img.shields.io/github/followers/nick2bad4u?style=social) 
-![Stars](https://img.shields.io/github/stars/nick2bad4u?style=social) 
+![Profile Views](https://komarev.com/ghpvc/?username=nick2bad4u&color=blueviolet&style=flat-square)
+![Followers](https://img.shields.io/github/followers/nick2bad4u?style=social)
+![Stars](https://img.shields.io/github/stars/nick2bad4u?style=social)
 ![](https://hit.yhype.me/github/profile?user_id=20943337)
 
-## GitHub Stats 
-<a href="https://github.com/anuraghazra/github-readme-stats"><img height="180" align="center" src="https://github-readme-stats.vercel.app/api?username=nick2bad4u&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage&theme=dracula&show_icons=true&rank_icon=percentile&include_all_commits=true" alt="GitHub Stats" /></a><a href="https://github.com/anuraghazra/convoychat"><img height="180" align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=nick2bad4u&theme=dracula&layout=compact&langs_count=10" alt="Top Languages" /></a><a href="https://github.com/anuraghazra/convoychat"><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=nick2bad4u&layout=donut-vertical&show_icons=true&theme=dracula&hide=tcl" alt="Top Languages Donut" /></a><p align="left"><a href="#"><img src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/frameworks/angular.svg" alt="angular" style="vertical-align:top;
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=25&pause=1000&color=A231F7&center=true&vCenter=true&width=435&lines=Welcome+to+my+GitHub+Profile!)](https://git.io/typing-svg)
+
+## GitHub Stats
+
+<a href="https://github.com/anuraghazra/github-readme-stats"><img height="180" align="center" src="https://github-readme-stats.vercel.app/api?username=nick2bad4u&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage&theme=dracula&show_icons=true&rank_icon=percentile&include_all_commits=true" alt="GitHub Stats" /></a><a href="https://github.com/anuraghazra/convoychat"><img height="180" align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=nick2bad4u&theme=dracula&layout=compact&langs_count=10" alt="Top Languages" /></a><a href="https://github.com/anuraghazra/convoychat"><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=nick2bad4u&layout=donut-vertical&show_icons=true&theme=dracula&hide=tcl" alt="Top Languages Donut" /></a>
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=nick2bad4u&theme=react-dark&bg_color=20232a&hide_border=true"/>
+
+<div align="center">
+  <img src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Nick2bad4u&theme=bear" width=750  alt="stats graph"/>
+
+</div>
+
+[![trophy](https://github-profile-trophy.vercel.app/?username=nick2bad4u&theme=onedark)](https://github.com/ryo-ma/github-profile-trophy)
+
+<p align="left"><a href="#"><img src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/frameworks/angular.svg" alt="angular" style="vertical-align:top;
  margin:6px 4px"></a><a href="#"><img src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/frameworks/avalonia.svg" alt="avalonia" style="vertical-align:top;
  margin:6px 4px"></a><a href="#"><img src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/frameworks/bootstrap.svg" alt="bootstrap" style="vertical-align:top;
  margin:6px 4px"></a><a href="#"><img src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/frameworks/flutter.svg" alt="flutter" style="vertical-align:top;
