@@ -15,6 +15,10 @@ contributions = data["contributions"]
 dates = [datetime.strptime(entry["date"], "%Y-%m-%d") for entry in contributions]
 counts = [entry["count"] for entry in contributions]
 
+# Debugging: Print out a few entries to verify
+for i in range(5):
+    print(f"Date: {dates[i]}, Count: {counts[i]}")
+
 # Prepare heatmap grid (52 weeks x 7 days)
 heatmap_data = np.zeros((7, 52))  # 7 rows (days), 52 columns (weeks)
 
@@ -24,6 +28,10 @@ for date, count in zip(dates, counts):
     if week < 52:  # Ensure valid weeks
         heatmap_data[day, week] += count
 
+# Debugging: Print the heatmap data to check
+print("Heatmap data array:")
+print(heatmap_data)
+
 # Step 3: Create Heatmap
 plt.figure(figsize=(20, 5))
 plt.imshow(
@@ -31,7 +39,9 @@ plt.imshow(
     cmap="Greens",
     interpolation="nearest",
     aspect="auto",
-    origin="lower"
+    origin="lower",
+    vmin=0,  # Set minimum value for color scale
+    vmax=np.max(counts) if counts else 1  # Set maximum value for color scale
 )
 
 # Add labels and titles
