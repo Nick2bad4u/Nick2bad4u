@@ -1,0 +1,40 @@
+name: Update Contribution Graph
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Runs daily at midnight
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  generate-contributions:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Setup Python
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install matplotlib requests numpy
+
+      # Step 4: Run the script to generate the heatmap
+      - name: Generate contribution graph
+        run: python scripts/generate_contribution_graph.py
+
+      # Step 5: Commit and push the image
+      - name: Commit and push changes
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add contributions_heatmap.png
+          git commit -m "Update contribution graph"
+          git push
