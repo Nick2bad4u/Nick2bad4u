@@ -1,4 +1,5 @@
 ![Profile Views](https://komarev.com/ghpvc/?username=nick2bad4u&color=blueviolet&style=flat-square)
+[![Hits](https://hits.sh/github.com/Nick2bad4u/Nick2bad4u.svg?view=today-total&label=Viists&extraCount=200&color=8511cc&logo=github)](https://hits.sh/github.com/Nick2bad4u/Nick2bad4u/)
 ![Followers](https://img.shields.io/github/followers/nick2bad4u?style=social)
 ![Stars](https://img.shields.io/github/stars/nick2bad4u?style=social)
 ![](https://hit.yhype.me/github/profile?user_id=20943337)
