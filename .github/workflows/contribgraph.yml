@@ -28,7 +28,7 @@ jobs:
 
       # Step 4: Run the script to generate the heatmap
       - name: Generate contribution graph
-        run: generate_contribution_graph.py
+        run: python scripts/generate_contribution_graph.py
 
       # Step 5: Commit and push the image
       - name: Commit and push changes
