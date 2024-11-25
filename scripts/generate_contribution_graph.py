@@ -9,33 +9,36 @@ url = f"https://github-contributions.vercel.app/api/v1/{username}"
 response = requests.get(url)
 data = response.json()
 
-# Step 2: Parse Data
-# Initialize a grid for contributions
-weeks = len(data["contributions"])  # Number of weeks
-days = 7  # Days in a week
-heatmap_data = np.zeros((days, weeks))
+# Step 2: Parse Contributions
+# Filter contributions by year (optional, use the latest year with contributions)
+contributions = data["contributions"]
+dates = [datetime.strptime(entry["date"], "%Y-%m-%d") for entry in contributions]
+counts = [entry["count"] for entry in contributions]
 
-# Populate heatmap data
-for week_index, week in enumerate(data["contributions"]):
-    for day_data in week["days"]:
-        day_index = datetime.strptime(day_data["date"], "%Y-%m-%d").weekday()
-        heatmap_data[day_index][week_index] = day_data["count"]
+# Prepare heatmap grid (52 weeks x 7 days)
+heatmap_data = np.zeros((7, 52))  # 7 rows (days), 52 columns (weeks)
+
+for date, count in zip(dates, counts):
+    week = date.isocalendar()[1] - 1  # Week of the year (1-52, adjust to 0-indexed)
+    day = date.weekday()  # Day of the week (Monday=0, Sunday=6)
+    if week < 52:  # Ensure valid weeks
+        heatmap_data[day, week] += count
 
 # Step 3: Create Heatmap
 plt.figure(figsize=(20, 5))
 plt.imshow(
-    heatmap_data, 
-    cmap="Greens", 
-    interpolation="nearest", 
-    aspect="auto", 
+    heatmap_data,
+    cmap="Greens",
+    interpolation="nearest",
+    aspect="auto",
     origin="lower"
 )
 
 # Add labels and titles
 plt.colorbar(label="Contribution Count")
 plt.yticks(ticks=range(7), labels=["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"])
-plt.xticks(ticks=range(0, weeks, 4), labels=[f"Week {i}" for i in range(0, weeks, 4)], rotation=45)
-plt.title(f"GitHub Contributions for {username}")
+plt.xticks(ticks=range(0, 52, 4), labels=[f"Week {i}" for i in range(1, 53, 4)], rotation=45)
+plt.title(f"GitHub Contributions for {username} (2024)")
 plt.tight_layout()
 
 # Save the graph as an image
