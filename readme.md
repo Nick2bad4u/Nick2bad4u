@@ -20,6 +20,9 @@
  <img src="https://github-profile-trophy.vercel.app/?username=nick2bad4u&theme=onedark&row=6&column=3"](https://github.com/ryo-ma/github-profile-trophy)
 </div>
 
+<div align="center">
+  <img src="https://streak-stats.demolab.com?user=Nick2bad4u&theme=dracula&border_radius=5&date_format=M%20j%5B%2C%20Y%5D&mode=weekly&background=45%2C6123EB%2C000000&fire=EB0000&border=FF0000"  alt="streak stats graph"/>
+
 ## Things I do
 
 <p align="center"><a href="#"><img src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/languages/css3.svg" alt="css3" style="vertical-align:top;
