@@ -2,6 +2,7 @@
 ![Followers](https://img.shields.io/github/followers/nick2bad4u?style=social)
 ![Stars](https://img.shields.io/github/stars/nick2bad4u?style=social)
 ![](https://hit.yhype.me/github/profile?user_id=20943337)
+[![Snake Contributions](https://github.com/Nick2bad4u/UserStyles/actions/workflows/Snake.yml/badge.svg)](https://github.com/Nick2bad4u/UserStyles/actions/workflows/Snake.yml)
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=25&pause=1000&color=A231F7&center=true&vCenter=true&width=435&lines=Welcome+to+my+GitHub+Profile!)](https://git.io/typing-svg)
 
