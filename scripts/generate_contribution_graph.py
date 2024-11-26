@@ -29,7 +29,7 @@ fig.tight_layout(pad=5.0)  # Add some padding between subplots
 for i, year_data in enumerate(years_data):
     year = year_data['year']
     start_date = datetime.strptime(year_data['range']['start'], "%Y-%m-%d")
-    end_date = datetime.strptime(year_data['range']['end"], "%Y-%m-%d")
+    end_date = datetime.strptime(year_data['range']['end'], "%Y-%m-%d")
     
     # Generate the matrix for plotting
     date_matrix = np.zeros((7, 53))  # 7 rows for days of the week, 53 columns for weeks in a year
