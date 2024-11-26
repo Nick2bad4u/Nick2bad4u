@@ -25,7 +25,7 @@ jobs:
 
     - name: Generate chart and save as PNG
       run: |
-        python generate_contribution_graph.py
+        python scripts/generate_contribution_graph.py
 
     - name: Commit and push PNG
       run: |
