@@ -25,7 +25,19 @@ if not years_data:
 # Calculate the total date range
 start_date = datetime.strptime(years_data[0]['range']['start'], "%Y-%m-%d")
 end_date = datetime.strptime(years_data[-1]['range']['end'], "%Y-%m-%d")
+
+# Debugging: Print the date range
+print("Start date:", start_date)
+print("End date:", end_date)
+
+# Validate the date range
+if end_date < start_date:
+    raise ValueError(f"Invalid date range: Start date {start_date} is after end date {end_date}.")
+
 total_weeks = (end_date - start_date).days // 7 + 1
+if total_weeks <= 0:
+    raise ValueError(f"Calculated total_weeks is invalid: {total_weeks}. Check date range.")
+
 
 # Create a unified matrix for all years
 date_matrix = np.zeros((7, total_weeks))  # 7 rows for days of the week, total_weeks for the timeline
