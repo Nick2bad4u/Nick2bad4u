@@ -21,7 +21,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install requests plotly
+        pip install requests plotly numpy
 
     - name: Generate chart and save as PNG
       run: |
