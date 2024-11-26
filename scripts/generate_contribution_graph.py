@@ -65,6 +65,9 @@ for i, year_data in enumerate(years_data):
 
     # Title for the current year
     ax.set_title(f"GitHub Contributions for {year}", fontsize=14)
+    
+    # Fine-tune layout with subplots_adjust
+plt.subplots_adjust(hspace=0.3)  # Adjust vertical spacing
 
 # Save the figure as a PNG file
 plt.savefig("scripts/contributions_chart.png", bbox_inches='tight', dpi=300)  # 'bbox_inches=tight' ensures no clipping of labels
