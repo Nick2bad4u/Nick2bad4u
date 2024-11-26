@@ -2,17 +2,24 @@ import requests
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.colors as mcolors
-from datetime import datetime, timedelta  # Added timedelta import
-import calendar
+from datetime import datetime, timedelta
 
 # Fetch data from the API
 url = "https://github-contributions.vercel.app/api/v1/nick2bad4u"
 response = requests.get(url)
 data = response.json()
 
+# Debugging: Check the response to ensure 'years' data is available
+print("Response data:", data)
+
 # Extract contribution data
-contributions = data['contributions']
-years_data = data['years']
+contributions = data.get('contributions', [])
+years_data = data.get('years', [])
+
+# Check if 'years_data' is empty
+if not years_data:
+    print("No years data available.")
+    exit()  # Exit if no data is found
 
 # Create a new figure for the entire data
 fig, axes = plt.subplots(len(years_data), 1, figsize=(10, 7 * len(years_data)))
@@ -42,7 +49,6 @@ for i, year_data in enumerate(years_data):
         current_date = current_date + timedelta(days=1)  # Add one day to current_date
 
     # Create a color map for the graph
-    # Use a subtle blue to gray gradient that matches GitHub's theme
     norm = mcolors.Normalize(vmin=0, vmax=5)
     cmap = mcolors.LinearSegmentedColormap.from_list("github", ["#f6f8fa", "#0366d6"])
 
@@ -67,6 +73,3 @@ for i, year_data in enumerate(years_data):
 
 # Save the figure as a PNG file
 plt.savefig("scripts/contributions_chart.png", bbox_inches='tight', dpi=300)  # 'bbox_inches=tight' ensures no clipping of labels
-
-# Optionally display the plot (useful for debugging locally)
-# plt.show()
