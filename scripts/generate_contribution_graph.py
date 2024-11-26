@@ -55,6 +55,8 @@ for i, year_data in enumerate(years_data):
     ax = axes[i] if len(years_data) > 1 else axes  # If multiple years, select the appropriate axis
     im = ax.imshow(date_matrix, cmap=cmap, norm=norm)
 
+    # Disable color bar by not creating one explicitly
+
     # Configure the calendar grid and labels
     ax.set_xticks(np.arange(53))
     ax.set_yticks(np.arange(7))
@@ -66,5 +68,6 @@ for i, year_data in enumerate(years_data):
 
 # Save the figure as a PNG file
 plt.savefig("scripts/contributions_chart.png", bbox_inches='tight', dpi=300)  # 'bbox_inches=tight' ensures no clipping of labels
+
 
 
