@@ -3,15 +3,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.colors as mcolors
 from datetime import datetime, timedelta
-from matplotlib.gridspec import GridSpec
 
 # Fetch data from the API
 url = "https://github-contributions.vercel.app/api/v1/nick2bad4u"
 response = requests.get(url)
 data = response.json()
-
-# Debugging: Check the response to ensure 'years' data is available
-print("Response data:", data)
 
 # Extract contribution data
 contributions = data.get('contributions', [])
@@ -22,75 +18,82 @@ if not years_data:
     print("No years data available.")
     exit()  # Exit if no data is found
 
-# Debugging: Check years data
-print("Raw years data:", years_data)
-
 # Sort the years data by start date
 years_data.sort(key=lambda x: datetime.strptime(x['range']['start'], "%Y-%m-%d"))
-
-# Debugging: Check sorted years data
-print("Sorted years data:", years_data)
 
 # Calculate the total date range
 start_date = datetime.strptime(years_data[0]['range']['start'], "%Y-%m-%d")
 end_date = datetime.strptime(years_data[-1]['range']['end'], "%Y-%m-%d")
 
-# Debugging: Print the corrected date range
-print("Corrected Start date:", start_date)
-print("Corrected End date:", end_date)
-
 # Validate the date range
 if end_date < start_date:
     raise ValueError(f"Invalid date range: Start date {start_date} is after end date {end_date}.")
 
+# Calculate total days in the date range
+total_days = (end_date - start_date).days + 1
 
-total_weeks = (end_date - start_date).days // 7 + 1
-if total_weeks <= 0:
-    raise ValueError(f"Calculated total_weeks is invalid: {total_weeks}. Check date range.")
-
-
-# Create a unified matrix for all years
-date_matrix = np.zeros((7, total_weeks))  # 7 rows for days of the week, total_weeks for the timeline
+# Create the matrix for the heatmap (7 rows for days of the week, total columns for days in range)
+heatmap_matrix = np.zeros((7, total_days // 7 + 1))  # Adjust columns based on number of weeks
 date_dict = {entry['date']: entry['intensity'] for entry in contributions}
 
-# Fill the matrix with contributions data
+# Populate the heatmap matrix
 current_date = start_date
+valid_dates = []  # List to store dates with contributions
 while current_date <= end_date:
-    day_of_week = current_date.weekday()  # Monday=0, Sunday=6
-    week_of_year = (current_date - start_date).days // 7  # Week index in the unified matrix
+    day_of_week = current_date.weekday()  # Get the weekday (0 = Monday, 6 = Sunday)
+    week_of_year = (current_date - start_date).days // 7  # Week number from start date
     date_str = current_date.strftime("%Y-%m-%d")
     intensity = int(date_dict.get(date_str, 0))  # Default to 0 if no contributions
 
-    date_matrix[day_of_week, week_of_year] = intensity
-    current_date += timedelta(days=1)
+    if intensity > 0:
+        heatmap_matrix[day_of_week, week_of_year] = intensity
+        valid_dates.append(current_date)  # Add the date to valid_dates if there's a contribution
 
-# Plot the unified matrix
-fig, ax = plt.subplots(figsize=(15, 7))
-norm = mcolors.Normalize(vmin=0, vmax=5)
-cmap = mcolors.LinearSegmentedColormap.from_list("github", ["#f6f8fa", "#0366d6"])
-im = ax.imshow(date_matrix, cmap=cmap, norm=norm, aspect='auto')
+    current_date += timedelta(days=1)  # Move to the next day
 
-# Add year separators
-year_starts = [datetime.strptime(year['range']['start'], "%Y-%m-%d") for year in years_data]
-year_labels = [year['year'] for year in years_data]
-for start in year_starts:
-    week_index = (start - start_date).days // 7
-    ax.axvline(x=week_index, color='black', linestyle='--', linewidth=0.8)  # Separator line
+# Remove empty weeks (columns where all days are 0)
+non_empty_columns = [i for i in range(heatmap_matrix.shape[1]) if np.any(heatmap_matrix[:, i] > 0)]
+filtered_matrix = heatmap_matrix[:, non_empty_columns]
 
-# Configure axes
-ax.set_xticks(np.arange(0, total_weeks, 52))  # Tick every 52 weeks (approx a year)
-ax.set_xticklabels([(start_date + timedelta(weeks=i)).strftime("%Y-%m-%d") for i in range(0, total_weeks, 52)])
+# Create the heatmap
+fig, ax = plt.subplots(figsize=(10, 7))  # Adjust figure size to match GitHub's grid
+
+# Define the colormap and normalize intensity values to match GitHub's contribution graph
+norm = mcolors.Normalize(vmin=0, vmax=5)  # Adjust to match the intensity scale (0 to 5)
+cmap = mcolors.LinearSegmentedColormap.from_list("github", ["#E6E6E6", "#1D76D2"])  # Light gray to dark blue
+
+# Plot the filtered heatmap
+im = ax.imshow(filtered_matrix, cmap=cmap, norm=norm, aspect='auto')
+
+# Configure the x-axis labels to show only weeks with contributions
+tick_interval = 4  # Label every 4th week (adjust based on your dataset)
+tick_positions = np.arange(0, filtered_matrix.shape[1], step=tick_interval)
+
+# Set ticks and labels on the x-axis, showing only valid weeks with contributions
+tick_labels = [
+    (start_date + timedelta(weeks=i * tick_interval)).strftime("%b %d, %Y")
+    for i in range(len(tick_positions))
+]
+ax.set_xticks(tick_positions)
+ax.set_xticklabels(tick_labels, rotation=45, ha="right")  # Rotate for better readability
+
+# Set y-ticks to represent days of the week (Mon-Sun)
 ax.set_yticks(np.arange(7))
 ax.set_yticklabels(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"])
-ax.set_title("GitHub Contributions Over the Years", fontsize=16)
 
-# Add year annotations
-for i, year in enumerate(year_labels):
-    week_index = (year_starts[i] - start_date).days // 7
-    ax.text(week_index + 1, -0.5, str(year), color='black', fontsize=12, ha='center')
+# Remove gridlines (GitHub doesn't have them)
+ax.grid(False)
 
-# Save the figure as a PNG file
-plt.savefig("scripts/unified_contributions_chart.png", bbox_inches='tight', dpi=300)
+# Add title and axis labels (Optional)
+ax.set_title("GitHub Contributions Heatmap", fontsize=16)
+ax.set_xlabel("Weeks", fontsize=12)
+ax.set_ylabel("Days of the Week", fontsize=12)
 
+# Add a color bar to represent contribution intensity
+cbar = plt.colorbar(im, ax=ax, orientation="vertical")
+cbar.set_label("Contribution Intensity", fontsize=12)
 
-
+# Show the plot
+plt.tight_layout()
+plt.savefig("contributions_chart_github_style_filtered.png", dpi=300)
+plt.show()
