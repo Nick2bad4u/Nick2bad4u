@@ -22,17 +22,27 @@ if not years_data:
     print("No years data available.")
     exit()  # Exit if no data is found
 
+# Debugging: Check years data
+print("Raw years data:", years_data)
+
+# Sort the years data by start date
+years_data.sort(key=lambda x: datetime.strptime(x['range']['start'], "%Y-%m-%d"))
+
+# Debugging: Check sorted years data
+print("Sorted years data:", years_data)
+
 # Calculate the total date range
 start_date = datetime.strptime(years_data[0]['range']['start'], "%Y-%m-%d")
 end_date = datetime.strptime(years_data[-1]['range']['end'], "%Y-%m-%d")
 
-# Debugging: Print the date range
-print("Start date:", start_date)
-print("End date:", end_date)
+# Debugging: Print the corrected date range
+print("Corrected Start date:", start_date)
+print("Corrected End date:", end_date)
 
 # Validate the date range
 if end_date < start_date:
     raise ValueError(f"Invalid date range: Start date {start_date} is after end date {end_date}.")
+
 
 total_weeks = (end_date - start_date).days // 7 + 1
 if total_weeks <= 0:
