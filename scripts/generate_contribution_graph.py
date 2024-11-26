@@ -22,7 +22,7 @@ if not years_data:
     exit()  # Exit if no data is found
 
 # Create the figure and the subplots
-fig, axes = plt.subplots(len(years_data), 1, figsize=(10, 7 * len(years_data)))
+fig, axes = plt.subplots(len(years_data), 1, figsize=(10, 6 * len(years_data)))
 fig.tight_layout(pad=1.0)  # Add some padding between subplots
 
 # Loop over each year in the response to create a separate graph for each
