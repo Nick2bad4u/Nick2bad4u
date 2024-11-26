@@ -29,7 +29,7 @@ fig.tight_layout(pad=5.0)  # Add some padding between subplots
 for i, year_data in enumerate(years_data):
     year = year_data['year']
     start_date = datetime.strptime(year_data['range']['start'], "%Y-%m-%d")
-    end_date = datetime.strptime(year_data['range']['end'], "%Y-%m-%d")
+    end_date = datetime.strptime(year_data['range']['end"], "%Y-%m-%d")
     
     # Generate the matrix for plotting
     date_matrix = np.zeros((7, 53))  # 7 rows for days of the week, 53 columns for weeks in a year
@@ -61,16 +61,10 @@ for i, year_data in enumerate(years_data):
     ax.set_xticklabels([f"Week {i+1}" for i in range(53)], rotation=90)
     ax.set_yticklabels(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"])
 
-    # Add a more compact color bar for intensity levels
-    cbar = fig.colorbar(im, ax=ax, shrink=0.8, pad=0.01)  # Shrink the color bar and adjust padding
-    cbar.set_label('Contributions')
-    cbar.ax.tick_params(labelsize=8)  # Make the tick labels smaller
-    cbar.set_ticks([0, 1, 2, 3, 4, 5])  # Ensure the ticks show 0-5 in a compact manner
-    cbar.ax.invert_yaxis()  # Reverse the color bar so the lighter color represents 0
-
     # Title for the current year
     ax.set_title(f"GitHub Contributions for {year}", fontsize=14)
 
 # Save the figure as a PNG file
 plt.savefig("scripts/contributions_chart.png", bbox_inches='tight', dpi=300)  # 'bbox_inches=tight' ensures no clipping of labels
+
 
