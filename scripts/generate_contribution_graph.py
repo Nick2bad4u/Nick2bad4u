@@ -16,7 +16,7 @@ counts = [entry["count"] for entry in contributions]
 
 # Debugging: Log contribution data to verify correct parsing
 for i in range(5):  # Print first 5 entries for debugging
-    print(f"Date: {dates[i]}, Count: {counts[i]}")
+    print(f"Parsed Date: {dates[i]}, Count: {counts[i]}")
 
 # Prepare heatmap grid (12 months x 7 days)
 heatmap_data = np.zeros((7, 12))  # 7 rows (days), 12 columns (months)
@@ -30,8 +30,11 @@ for date, count in zip(dates, counts):
         month = date.month - 1  # Month of the year (1-12, adjust to 0-indexed)
         day = date.weekday()  # Day of the week (Monday=0, Sunday=6)
         
+        # Debugging: Log month and day for each contribution
+        print(f"Date: {date}, Month: {month + 1}, Day: {day}")
+
         # Ensure valid months and days
-        if month < 12:  # Ensure valid months
+        if 0 <= month < 12:  # Ensure valid months (0-11)
             heatmap_data[day, month] += count
             monthly_contribs[month] += count
 
