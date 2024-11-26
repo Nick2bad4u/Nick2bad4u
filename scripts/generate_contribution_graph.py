@@ -1,70 +1,68 @@
 import requests
 import matplotlib.pyplot as plt
 import numpy as np
-from datetime import datetime
+import matplotlib.colors as mcolors
+from datetime import datetime, timedelta  # Added timedelta import
+import calendar
 
-# Step 1: Fetch Data
-username = "nick2bad4u"
-url = f"https://github-contributions.vercel.app/api/v1/{username}"
+# Fetch data from the API
+url = "https://github-contributions.vercel.app/api/v1/nick2bad4u"
 response = requests.get(url)
 data = response.json()
 
-# Debugging: Check API response
-if "contributions" not in data:
-    print("Invalid API response. No 'contributions' key found.")
-    exit()
+# Extract contribution data
+contributions = data['contributions']
+years_data = data['years']
 
-contributions = data["contributions"]
+# Create a new figure for the entire data
+fig, axes = plt.subplots(len(years_data), 1, figsize=(10, 7 * len(years_data)))
+fig.tight_layout(pad=5.0)  # Add some padding between subplots
 
-# Step 2: Parse Contributions
-dates = [datetime.strptime(entry["date"], "%Y-%m-%d") for entry in contributions]
-counts = [entry["count"] for entry in contributions]
+# Loop over each year in the response to create a separate graph for each
+for i, year_data in enumerate(years_data):
+    year = year_data['year']
+    start_date = datetime.strptime(year_data['range']['start'], "%Y-%m-%d")
+    end_date = datetime.strptime(year_data['range']['end'], "%Y-%m-%d")
+    
+    # Generate the matrix for plotting
+    date_matrix = np.zeros((7, 53))  # 7 rows for days of the week, 53 columns for weeks in a year
+    date_dict = {entry['date']: entry['intensity'] for entry in contributions}
 
-# Guard against empty data
-if not dates or not counts:
-    print("No contributions data available. Exiting...")
-    exit()
+    # Fill the matrix with contribution intensities for this year
+    current_date = start_date
+    while current_date <= end_date:
+        day_of_week = current_date.weekday()  # Monday=0, Sunday=6
+        week_of_year = current_date.isocalendar()[1]  # Week number (1-53)
+        date_str = current_date.strftime("%Y-%m-%d")
+        intensity = int(date_dict.get(date_str, 0))  # 0 if no contributions for that day
 
-# Debugging: Log the first few parsed contributions
-for i in range(min(5, len(dates))):  # Avoid out-of-range error
-    print(f"Parsed Date: {dates[i]}, Count: {counts[i]}")
+        # Put the intensity in the correct spot in the matrix
+        date_matrix[day_of_week, week_of_year - 1] = intensity
 
-# Rest of the script...
-# Prepare heatmap grid (12 months x 7 days)
-heatmap_data = np.zeros((7, 12))  # 7 rows (days), 12 columns (months)
-monthly_contribs = {i: 0 for i in range(12)}  # To count contributions for each month
+        current_date = current_date + timedelta(days=1)  # Add one day to current_date
 
-for date, count in zip(dates, counts):
-    if count > 0:  # Only process contributions with count > 0
-        month = date.month - 1  # Month of the year (1-12, adjust to 0-indexed)
-        day = date.weekday()  # Day of the week (Monday=0, Sunday=6)
+    # Create a color map for the graph
+    norm = mcolors.Normalize(vmin=0, vmax=5)
+    cmap = plt.cm.Blues
 
-        # Ensure valid months and days
-        if 0 <= month < 12:
-            heatmap_data[day, month] += count
-            monthly_contribs[month] += count
+    ax = axes[i] if len(years_data) > 1 else axes  # If multiple years, select the appropriate axis
+    ax.imshow(date_matrix, cmap=cmap, norm=norm)
 
-# Debugging: Print the monthly contributions summary
-print("Monthly Contributions Summary:")
-for month, total in monthly_contribs.items():
-    print(f"Month {month + 1}: {total} contributions")
+    # Configure the calendar grid and labels
+    ax.set_xticks(np.arange(53))
+    ax.set_yticks(np.arange(7))
+    ax.set_xticklabels([f"Week {i+1}" for i in range(53)], rotation=90)
+    ax.set_yticklabels(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"])
 
-# Create and save the heatmap
-plt.figure(figsize=(20, 5))
-plt.imshow(
-    heatmap_data,
-    cmap="Greens",
-    interpolation="nearest",
-    aspect="auto",
-    origin="lower",
-    vmin=0,
-    vmax=np.max(heatmap_data) if np.max(heatmap_data) > 0 else 1
-)
-plt.colorbar(label="Contribution Count")
-plt.yticks(ticks=range(7), labels=["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"])
-plt.xticks(ticks=range(12), labels=[f"Month {i+1}" for i in range(12)], rotation=45)
-plt.title(f"GitHub Contributions for {username} (2024) - Grouped by Month")
-plt.tight_layout()
-plt.savefig("contributions_heatmap_monthly.png")
-print("Graph saved as 'contributions_heatmap_monthly.png'")
-plt.show()
+    # Add a color bar for intensity levels
+    cbar = plt.colorbar(ax.imshow(date_matrix, cmap=cmap, norm=norm), ax=ax)
+    cbar.set_label('Contributions')
+
+    # Title for the current year
+    ax.set_title(f"GitHub Contributions for {year}", fontsize=14)
+
+# Save the figure as a PNG file
+plt.savefig("scripts/contributions_chart.png", bbox_inches='tight')  # 'bbox_inches=tight' ensures no clipping of labels
+
+# Optionally display the plot (useful for debugging locally)
+# plt.show()
