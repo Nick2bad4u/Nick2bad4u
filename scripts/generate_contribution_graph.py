@@ -21,7 +21,7 @@ if not years_data:
     print("No years data available.")
     exit()  # Exit if no data is found
 
-# Create a new figure for the entire data
+# Create the figure and the subplots
 fig, axes = plt.subplots(len(years_data), 1, figsize=(10, 7 * len(years_data)))
 fig.tight_layout(pad=5.0)  # Add some padding between subplots
 
@@ -53,7 +53,7 @@ for i, year_data in enumerate(years_data):
     cmap = mcolors.LinearSegmentedColormap.from_list("github", ["#f6f8fa", "#0366d6"])
 
     ax = axes[i] if len(years_data) > 1 else axes  # If multiple years, select the appropriate axis
-    ax.imshow(date_matrix, cmap=cmap, norm=norm)
+    im = ax.imshow(date_matrix, cmap=cmap, norm=norm)
 
     # Configure the calendar grid and labels
     ax.set_xticks(np.arange(53))
@@ -62,7 +62,7 @@ for i, year_data in enumerate(years_data):
     ax.set_yticklabels(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"])
 
     # Add a more compact color bar for intensity levels
-    cbar = plt.colorbar(ax.imshow(date_matrix, cmap=cmap, norm=norm), ax=ax)
+    cbar = fig.colorbar(im, ax=ax, shrink=0.8, pad=0.01)  # Shrink the color bar and adjust padding
     cbar.set_label('Contributions')
     cbar.ax.tick_params(labelsize=8)  # Make the tick labels smaller
     cbar.set_ticks([0, 1, 2, 3, 4, 5])  # Ensure the ticks show 0-5 in a compact manner
@@ -73,3 +73,4 @@ for i, year_data in enumerate(years_data):
 
 # Save the figure as a PNG file
 plt.savefig("scripts/contributions_chart.png", bbox_inches='tight', dpi=300)  # 'bbox_inches=tight' ensures no clipping of labels
+
