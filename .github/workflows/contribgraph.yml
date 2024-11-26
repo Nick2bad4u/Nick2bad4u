@@ -1,31 +1,31 @@
-name: Generate GitHub Contributions Chart
+name: Generate Contribution Graph
 
 on:
   push:
     branches:
-      - main
-  workflow_dispatch:
+      - main  # Trigger on push to the main branch, adjust as needed
 
 jobs:
-  generate_chart:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3  # Checkout the code from the repository
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4  # Set up the Python environment
       with:
-        python-version: 3.9
+        python-version: '3.9'  # You can specify a different version if needed
 
     - name: Install dependencies
       run: |
-        pip install requests plotly numpy
+        python -m pip install --upgrade pip  # Upgrade pip to the latest version
+        pip install matplotlib numpy requests  # Install necessary dependencies
 
     - name: Generate chart and save as PNG
       run: |
-        python scripts/generate_contribution_graph.py
+        python scripts/generate_contribution_graph.py  # Run your script
 
     - name: Commit and push PNG
       run: |
@@ -35,4 +35,4 @@ jobs:
         git commit -m "Add contributions chart"
         git push
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Automatically provided by GitHub Actions
