@@ -18,25 +18,27 @@ counts = [entry["count"] for entry in contributions]
 for i in range(5):  # Print first 5 entries for debugging
     print(f"Date: {dates[i]}, Count: {counts[i]}")
 
-# Prepare heatmap grid (52 weeks x 7 days)
-heatmap_data = np.zeros((7, 52))  # 7 rows (days), 52 columns (weeks)
+# Prepare heatmap grid (12 months x 7 days)
+heatmap_data = np.zeros((7, 12))  # 7 rows (days), 12 columns (months)
 
-# Log weekly contribution counts
-weekly_contribs = {i: 0 for i in range(52)}  # To count contributions for each week
+# Log monthly contribution counts
+monthly_contribs = {i: 0 for i in range(12)}  # To count contributions for each month
+
+# Ensure contributions are correctly mapped to the right month and day
 for date, count in zip(dates, counts):
     if count > 0:  # Only process contributions with count > 0
-        week = date.isocalendar()[1] - 1  # Week of the year (1-52, adjust to 0-indexed)
-        if week < 0:
-            week = 51  # Edge case for the first week of the year
+        month = date.month - 1  # Month of the year (1-12, adjust to 0-indexed)
         day = date.weekday()  # Day of the week (Monday=0, Sunday=6)
-        if week < 52:  # Ensure valid weeks
-            heatmap_data[day, week] += count
-            weekly_contribs[week] += count
+        
+        # Ensure valid months and days
+        if month < 12:  # Ensure valid months
+            heatmap_data[day, month] += count
+            monthly_contribs[month] += count
 
-# Debugging: Print the weekly contributions summary
-print("Weekly Contributions Summary:")
-for week, total in weekly_contribs.items():
-    print(f"Week {week + 1}: {total} contributions")
+# Debugging: Print the monthly contributions summary
+print("Monthly Contributions Summary:")
+for month, total in monthly_contribs.items():
+    print(f"Month {month + 1}: {total} contributions")
 
 # Step 3: Create Heatmap with better scaling
 plt.figure(figsize=(20, 5))
@@ -53,13 +55,13 @@ plt.imshow(
 # Add labels and titles
 plt.colorbar(label="Contribution Count")
 plt.yticks(ticks=range(7), labels=["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"])
-plt.xticks(ticks=range(0, 52, 4), labels=[f"Week {i}" for i in range(1, 53, 4)], rotation=45)
-plt.title(f"GitHub Contributions for {username} (2024)")
+plt.xticks(ticks=range(0, 12), labels=[f"Month {i+1}" for i in range(12)], rotation=45)
+plt.title(f"GitHub Contributions for {username} (2024) - Grouped by Month")
 plt.tight_layout()
 
 # Save the graph as an image
-plt.savefig("contributions_heatmap.png")
-print("Graph saved as 'contributions_heatmap.png'")
+plt.savefig("contributions_heatmap_monthly.png")
+print("Graph saved as 'contributions_heatmap_monthly.png'")
 
 # Display the graph
 plt.show()
