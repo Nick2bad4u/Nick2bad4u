@@ -10,7 +10,6 @@ response = requests.get(url)
 data = response.json()
 
 # Step 2: Parse Contributions
-# Filter contributions by year (optional, use the latest year with contributions)
 contributions = data["contributions"]
 dates = [datetime.strptime(entry["date"], "%Y-%m-%d") for entry in contributions]
 counts = [entry["count"] for entry in contributions]
@@ -25,11 +24,14 @@ heatmap_data = np.zeros((7, 52))  # 7 rows (days), 52 columns (weeks)
 # Log weekly contribution counts
 weekly_contribs = {i: 0 for i in range(52)}  # To count contributions for each week
 for date, count in zip(dates, counts):
-    week = date.isocalendar()[1] - 1  # Week of the year (1-52, adjust to 0-indexed)
-    day = date.weekday()  # Day of the week (Monday=0, Sunday=6)
-    if week < 52:  # Ensure valid weeks
-        heatmap_data[day, week] += count
-        weekly_contribs[week] += count
+    if count > 0:  # Only process contributions with count > 0
+        week = date.isocalendar()[1] - 1  # Week of the year (1-52, adjust to 0-indexed)
+        if week < 0:
+            week = 51  # Edge case for the first week of the year
+        day = date.weekday()  # Day of the week (Monday=0, Sunday=6)
+        if week < 52:  # Ensure valid weeks
+            heatmap_data[day, week] += count
+            weekly_contribs[week] += count
 
 # Debugging: Print the weekly contributions summary
 print("Weekly Contributions Summary:")
