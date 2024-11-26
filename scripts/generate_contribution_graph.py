@@ -9,32 +9,38 @@ url = f"https://github-contributions.vercel.app/api/v1/{username}"
 response = requests.get(url)
 data = response.json()
 
-# Step 2: Parse Contributions
+# Debugging: Check API response
+if "contributions" not in data:
+    print("Invalid API response. No 'contributions' key found.")
+    exit()
+
 contributions = data["contributions"]
+
+# Step 2: Parse Contributions
 dates = [datetime.strptime(entry["date"], "%Y-%m-%d") for entry in contributions]
 counts = [entry["count"] for entry in contributions]
 
-# Debugging: Log contribution data to verify correct parsing
-for i in range(5):  # Print first 5 entries for debugging
+# Guard against empty data
+if not dates or not counts:
+    print("No contributions data available. Exiting...")
+    exit()
+
+# Debugging: Log the first few parsed contributions
+for i in range(min(5, len(dates))):  # Avoid out-of-range error
     print(f"Parsed Date: {dates[i]}, Count: {counts[i]}")
 
+# Rest of the script...
 # Prepare heatmap grid (12 months x 7 days)
 heatmap_data = np.zeros((7, 12))  # 7 rows (days), 12 columns (months)
-
-# Log monthly contribution counts
 monthly_contribs = {i: 0 for i in range(12)}  # To count contributions for each month
 
-# Ensure contributions are correctly mapped to the right month and day
 for date, count in zip(dates, counts):
     if count > 0:  # Only process contributions with count > 0
         month = date.month - 1  # Month of the year (1-12, adjust to 0-indexed)
         day = date.weekday()  # Day of the week (Monday=0, Sunday=6)
-        
-        # Debugging: Log month and day for each contribution
-        print(f"Date: {date}, Month: {month + 1}, Day: {day}")
 
         # Ensure valid months and days
-        if 0 <= month < 12:  # Ensure valid months (0-11)
+        if 0 <= month < 12:
             heatmap_data[day, month] += count
             monthly_contribs[month] += count
 
@@ -43,7 +49,7 @@ print("Monthly Contributions Summary:")
 for month, total in monthly_contribs.items():
     print(f"Month {month + 1}: {total} contributions")
 
-# Step 3: Create Heatmap with better scaling
+# Create and save the heatmap
 plt.figure(figsize=(20, 5))
 plt.imshow(
     heatmap_data,
@@ -51,20 +57,14 @@ plt.imshow(
     interpolation="nearest",
     aspect="auto",
     origin="lower",
-    vmin=0,  # Set minimum value for color scale
-    vmax=np.max(heatmap_data) if np.max(heatmap_data) > 0 else 1  # Ensure the scale covers all data
+    vmin=0,
+    vmax=np.max(heatmap_data) if np.max(heatmap_data) > 0 else 1
 )
-
-# Add labels and titles
 plt.colorbar(label="Contribution Count")
 plt.yticks(ticks=range(7), labels=["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"])
-plt.xticks(ticks=range(0, 12), labels=[f"Month {i+1}" for i in range(12)], rotation=45)
+plt.xticks(ticks=range(12), labels=[f"Month {i+1}" for i in range(12)], rotation=45)
 plt.title(f"GitHub Contributions for {username} (2024) - Grouped by Month")
 plt.tight_layout()
-
-# Save the graph as an image
 plt.savefig("contributions_heatmap_monthly.png")
 print("Graph saved as 'contributions_heatmap_monthly.png'")
-
-# Display the graph
 plt.show()
