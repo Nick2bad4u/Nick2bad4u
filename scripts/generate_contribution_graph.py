@@ -23,7 +23,7 @@ if not years_data:
 
 # Create the figure and the subplots
 fig, axes = plt.subplots(len(years_data), 1, figsize=(10, 7 * len(years_data)))
-fig.tight_layout(pad=5.0)  # Add some padding between subplots
+fig.tight_layout(pad=1.0)  # Add some padding between subplots
 
 # Loop over each year in the response to create a separate graph for each
 for i, year_data in enumerate(years_data):
