@@ -1,9 +1,8 @@
 import requests
-import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 import numpy as np
-import matplotlib.colors as mcolors
-from datetime import datetime, timedelta  # Added timedelta import
-import calendar
+from datetime import datetime, timedelta
+import plotly.io as pio
 
 # Fetch data from the API
 url = "https://github-contributions.vercel.app/api/v1/nick2bad4u"
@@ -14,12 +13,11 @@ data = response.json()
 contributions = data['contributions']
 years_data = data['years']
 
-# Create a new figure for the entire data
-fig, axes = plt.subplots(len(years_data), 1, figsize=(10, 7 * len(years_data)))
-fig.tight_layout(pad=5.0)  # Add some padding between subplots
+# Create a figure to plot multiple years
+fig = go.Figure()
 
 # Loop over each year in the response to create a separate graph for each
-for i, year_data in enumerate(years_data):
+for year_data in years_data:
     year = year_data['year']
     start_date = datetime.strptime(year_data['range']['start'], "%Y-%m-%d")
     end_date = datetime.strptime(year_data['range']['end'], "%Y-%m-%d")
@@ -41,28 +39,37 @@ for i, year_data in enumerate(years_data):
 
         current_date = current_date + timedelta(days=1)  # Add one day to current_date
 
-    # Create a color map for the graph
-    norm = mcolors.Normalize(vmin=0, vmax=5)
-    cmap = plt.cm.Blues
+    # Add this year's contribution matrix to the Plotly figure
+    fig.add_trace(go.Heatmap(
+        z=date_matrix,
+        colorscale='Blues',  # Default color scale (you can change this dynamically)
+        colorbar=dict(title='Contributions'),
+        zmin=0, zmax=5,  # Set intensity limits (adjust as needed)
+        showscale=True,
+        name=f'GitHub Contributions {year}'
+    ))
 
-    ax = axes[i] if len(years_data) > 1 else axes  # If multiple years, select the appropriate axis
-    ax.imshow(date_matrix, cmap=cmap, norm=norm)
+# Update layout for interactivity and scrolling
+fig.update_layout(
+    title="GitHub Contributions Over Multiple Years",
+    xaxis=dict(
+        title="Weeks of the Year",
+        tickmode="array",
+        tickvals=np.arange(53),
+        ticktext=[f"Week {i+1}" for i in range(53)],
+        rangeslider=dict(
+            visible=True  # Add the slider for the x-axis
+        )
+    ),
+    yaxis=dict(
+        title="Days of the Week",
+        tickmode="array",
+        tickvals=np.arange(7),
+        ticktext=["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    ),
+    height=800,  # Make the graph large enough to show all years
+    showlegend=True
+)
 
-    # Configure the calendar grid and labels
-    ax.set_xticks(np.arange(53))
-    ax.set_yticks(np.arange(7))
-    ax.set_xticklabels([f"Week {i+1}" for i in range(53)], rotation=90)
-    ax.set_yticklabels(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"])
-
-    # Add a color bar for intensity levels
-    cbar = plt.colorbar(ax.imshow(date_matrix, cmap=cmap, norm=norm), ax=ax)
-    cbar.set_label('Contributions')
-
-    # Title for the current year
-    ax.set_title(f"GitHub Contributions for {year}", fontsize=14)
-
-# Save the figure as a PNG file
-plt.savefig("scripts/contributions_chart.png", bbox_inches='tight')  # 'bbox_inches=tight' ensures no clipping of labels
-
-# Optionally display the plot (useful for debugging locally)
-# plt.show()
+# Save the plot as a PNG file
+pio.write_image(fig, 'contributions_chart.png')
