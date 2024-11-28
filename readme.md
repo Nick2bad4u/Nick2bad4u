@@ -490,5 +490,3 @@
     />
   </a>
 </p>
-
-<img src="https://github-contributions.vercel.app/api/v1/nick2bad4u" alt="GitHub Contribution Graph">
