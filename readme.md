@@ -52,6 +52,7 @@
 </div>
 
 ##
+
 <div align="center">
   <a href="https://git.io/typing-svg">
     <img
@@ -110,6 +111,7 @@
 </div>
 
 ##
+
 <div align="center">
   <a href="https://git.io/typing-svg">
     <img
@@ -134,6 +136,7 @@
 </div>
 
 ##
+
 <div align="center">
   <a href="https://git.io/typing-svg">
     <img
@@ -490,3 +493,11 @@
     />
   </a>
 </p>
+<div align="center">
+  <a href="https://git.io/typing-svg">
+    <img
+      src="https://githubcard.rajaryan.work/user/Nick2bad4u"
+      alt="GithubCard.Com Card"
+    />
+  </a>
+</div>
