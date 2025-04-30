@@ -3,4 +3,14 @@ updates:
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: daily
+      interval: monthly
+    allow:
+      # Allow both direct and indirect updates for all packages
+      - dependency-type: "all"
+    labels:
+      - "github-actions"
+    groups:
+      github-actions:
+        applies-to: version-updates
+        patterns:
+          - "*"
