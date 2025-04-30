@@ -5,16 +5,26 @@ on:
     branches:
       - main  # Trigger on push to the main branch, adjust as needed
 
+permissions:
+  contents: read
+
 jobs:
   build:
+    permissions:
+      contents: write  # for Git to git push
     runs-on: ubuntu-latest  # Use the latest Ubuntu runner
 
     steps:
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@0634a2670c59f64b4a01f0f96f84700a4088b9f0 # v2.12.0
+      with:
+        egress-policy: audit
+
     - name: Checkout repository
-      uses: actions/checkout@v3  # Checkout the code from the repository
+      uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
 
     - name: Set up Python
-      uses: actions/setup-python@v4  # Set up the Python environment
+      uses: actions/setup-python@7f4fc3e22c37d6ff65e88745f38bd3157c663f7c # v4.9.1
       with:
         python-version: '3.9'  # You can specify a different version if needed
 
