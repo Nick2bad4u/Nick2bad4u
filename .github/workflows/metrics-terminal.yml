@@ -32,6 +32,7 @@ jobs:
           # Options
           user: nick2bad4u
           template: terminal
+          filename: metrics-terminal.repository.svg
           base: header, activity, community, repositories, metadata
           base_indepth: yes
           commits_authoring: nick2bad4u
