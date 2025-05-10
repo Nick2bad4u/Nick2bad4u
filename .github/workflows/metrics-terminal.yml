@@ -8,6 +8,9 @@ on:
   push: { branches: ["master", "main"] }
 jobs:
   github-metrics:
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     permissions:
       contents: write

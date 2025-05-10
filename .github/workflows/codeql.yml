@@ -25,6 +25,9 @@ permissions:
 
 jobs:
   analyze:
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: false
     name: Analyze
     runs-on: ubuntu-latest
     permissions:

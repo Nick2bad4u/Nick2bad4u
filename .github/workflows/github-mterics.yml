@@ -8,6 +8,9 @@ on:
   push: { branches: ["master", "main"] }
 jobs:
   github-metrics:
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -143,10 +146,10 @@ jobs:
           plugin_stars: yes
           plugin_stars_limit: 8
           plugin_steam: yes
-          plugin_steam_achievements_limit: 2
-          plugin_steam_games_limit: 1
-          plugin_steam_playtime_threshold: 2
-          plugin_steam_recent_games_limit: 1
+          plugin_steam_achievements_limit: 8
+          plugin_steam_games_limit: 8
+          plugin_steam_playtime_threshold: 4
+          plugin_steam_recent_games_limit: 3
           plugin_steam_sections: player, most-played, recently-played
           plugin_steam_user: TyppiLol
           plugin_steam_token: ${{ secrets.METRICS_STEAM_TOKEN }}
