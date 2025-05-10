@@ -42,10 +42,11 @@ jobs:
           config_octicon: yes
           config_timezone: America/Detroit
           config_twemoji: yes
-          plugin_achievements: yes
-          plugin_achievements_display: detailed
-          plugin_achievements_secrets: yes
-          plugin_achievements_threshold: X
+          # plugin_achievements: yes
+          # plugin_achievements_display: detailed
+          # plugin_achievements_secrets: yes
+          # plugin_achievements_threshold: X
+          # Achievements plugin disabled due to Projects (classic) API deprecation. Re-enable when plugin is updated.
           plugin_activity: yes
           plugin_activity_days: 14
           plugin_activity_filter: all
@@ -110,6 +111,8 @@ jobs:
           plugin_pagespeed_detailed: yes
           plugin_pagespeed_pwa: yes
           plugin_pagespeed_screenshot: yes
+          # Debug: Ensure the URL below is public and accessible by Google PageSpeed API. If you see errors, try testing the URL in https://pagespeed.web.dev/ and check for issues.
+          # If the site is private, down, or blocks bots, the plugin will fail.
           plugin_pagespeed_url: https://fitfileviewer.typpi.online
           plugin_pagespeed_token: ${{ secrets.METRICS_PAGESPEED_TOKEN }}
           plugin_people: yes
@@ -151,7 +154,7 @@ jobs:
           plugin_steam_playtime_threshold: 4
           plugin_steam_recent_games_limit: 3
           plugin_steam_sections: player, most-played, recently-played
-          plugin_steam_user: TyppiLol
+          plugin_steam_user: Nick2bad4u
           plugin_steam_token: ${{ secrets.METRICS_STEAM_TOKEN }}
           # plugin_support: yes
           # Support plugin disabled (account does not exist on github.community)
