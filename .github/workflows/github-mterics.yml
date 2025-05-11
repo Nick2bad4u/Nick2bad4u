@@ -107,14 +107,13 @@ jobs:
           # plugin_projects_descriptions: yes
           # plugin_projects_limit: 4
           # Projects (classic) plugin disabled due to deprecation. See: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/
-          plugin_pagespeed: yes
-          plugin_pagespeed_detailed: yes
-          plugin_pagespeed_pwa: yes
-          plugin_pagespeed_screenshot: yes
-          # Debug: Ensure the URL below is public and accessible by Google PageSpeed API. If you see errors, try testing the URL in https://pagespeed.web.dev/ and check for issues.
-          # If the site is private, down, or blocks bots, the plugin will fail.
-          plugin_pagespeed_url: https://fitfileviewer.typpi.online
-          plugin_pagespeed_token: ${{ secrets.METRICS_PAGESPEED_TOKEN }}
+          # plugin_pagespeed: yes
+          # plugin_pagespeed_detailed: yes
+          # plugin_pagespeed_pwa: yes
+          # plugin_pagespeed_screenshot: yes
+          # plugin_pagespeed_url: https://fitfileviewer.typpi.online
+          # plugin_pagespeed_token: ${{ secrets.METRICS_PAGESPEED_TOKEN }}
+          # Pagespeed plugin disabled due to repeated API errors. Re-enable after debugging the URL and API response.
           plugin_people: yes
           plugin_people_limit: 24
           plugin_people_size: 28
@@ -148,14 +147,15 @@ jobs:
           plugin_starlists_shuffle_repositories: yes
           plugin_stars: yes
           plugin_stars_limit: 8
-          plugin_steam: yes
-          plugin_steam_achievements_limit: 8
-          plugin_steam_games_limit: 8
-          plugin_steam_playtime_threshold: 4
-          plugin_steam_recent_games_limit: 3
-          plugin_steam_sections: player, most-played, recently-played
-          plugin_steam_user: Nick2bad4u
-          plugin_steam_token: ${{ secrets.METRICS_STEAM_TOKEN }}
+          # plugin_steam: yes
+          # plugin_steam_achievements_limit: 8
+          # plugin_steam_games_limit: 8
+          # plugin_steam_playtime_threshold: 4
+          # plugin_steam_recent_games_limit: 3
+          # plugin_steam_sections: player, most-played, recently-played
+          # plugin_steam_user: Nick2bad4u
+          # plugin_steam_token: ${{ secrets.METRICS_STEAM_TOKEN }}
+          # Steam plugin disabled due to API error 400. Double-check your Steam user, API key, and profile privacy. Re-enable after fixing.
           # plugin_support: yes
           # Support plugin disabled (account does not exist on github.community)
           plugin_topics: yes
