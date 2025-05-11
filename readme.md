@@ -547,3 +547,19 @@
       width="100%"
     />
 </div>
+
+<div align="center">
+    <img
+      src="https://raw.githubusercontent.com/Nick2bad4u/Nick2bad4u/ea286d63f43e54c84d93ce4375e069a2b797234c/github-metrics.svg"
+      alt="Github Metrics"
+      width="100%"
+    />
+</div>
+
+<div align="center">
+    <img
+      src="https://github.com/Nick2bad4u/Nick2bad4u/blob/main/assets/GitHubProfileLines%20(12).gif?raw=true"
+      alt="Repository Banner Line Animation"
+      width="100%"
+    />
+</div>
