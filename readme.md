@@ -550,7 +550,7 @@
 
 <div align="center">
     <img
-      src="https://raw.githubusercontent.com/Nick2bad4u/Nick2bad4u/ea286d63f43e54c84d93ce4375e069a2b797234c/github-metrics.svg"
+      src="https://raw.githubusercontent.com/Nick2bad4u/Nick2bad4u/refs/heads/main/github-metrics.svg"
       alt="Github Metrics"
       width="100%"
     />
