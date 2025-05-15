@@ -2,7 +2,7 @@
 name: Metrics - User - Terminal
 on:
   # Schedule updates (daily)
-  schedule: [{ cron: "0 0 * * *" }]
+  schedule: [{ cron: "3 43 * * *" }]
   # Lines below let you run workflow manually and on each commit
   workflow_dispatch:
   push: { branches: ["master", "main"] }
