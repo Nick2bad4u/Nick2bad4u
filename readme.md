@@ -53,7 +53,7 @@
 
 <div align="center">
     <img
-      src="https://github.com/Nick2bad4u/Nick2bad4u/blob/main/assets/GitHubProfileLines%20(10).gif?raw=true"
+      src="https://github.com/Nick2bad4u/Nick2bad4u/blob/main/assets/GitHubProfileLines%20(15).gif?raw=true"
       alt="Repository Banner Line Animation"
       width="100%"
     />
