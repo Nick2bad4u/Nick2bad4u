@@ -41,6 +41,14 @@
   </span>
 </div>
 <br />
+<div align="center">
+  <a href="https://wigle.net">
+    <img
+      src="https://wigle.net/bi/riIOtiMm+Dry0OgsjGgSww.png"
+      alt="Wigle.net Stats"
+    />
+  </a>
+</div>
 
 <div align="center">
   <a href="https://git.io/typing-svg">
@@ -105,7 +113,7 @@
   <br />
   </div>
 
-  <div align="center">
+<div align="center">
     <img
       src="https://github.com/Nick2bad4u/Nick2bad4u/blob/main/assets/GitHubProfileLines%20(14).gif?raw=true"
       alt="Repository Banner Line Animation"
@@ -128,7 +136,7 @@
     />
 </div>
 
-  <picture>
+<picture>
     <source
       media="(prefers-color-scheme: dark)"
       srcset="https://github.com/Nick2bad4u/UserStyles/blob/output/github-contribution-grid-snake-dark.svg"
@@ -232,6 +240,58 @@
     <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/languages/python.svg"
       alt="python"
+      style="vertical-align: top; margin: 6px 4px"
+    />
+  </a>
+  <a href="#">
+    <img
+      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/languages/rust.svg"
+      alt="rust"
+      style="vertical-align: top; margin: 6px 4px"
+    />
+  </a>
+</p>
+
+<p align="center">
+  <a href="#">
+    <img
+      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/frameworks/jquery.svg"
+      alt="rust"
+      style="vertical-align: top; margin: 6px 4px"
+    />
+  </a>
+  <a href="#">
+    <img
+      src="https://github.com/MikeCodesDotNET/ColoredBadges/raw/master/svg/dev/frameworks/nodejs.svg"
+      alt="nodejs"
+      style="vertical-align: top; margin: 6px 4px"
+    />
+  </a>
+  <a href="#">
+    <img
+      src="https://github.com/MikeCodesDotNET/ColoredBadges/raw/master/svg/dev/frameworks/nodejs_larger.svg"
+      alt="nodejs larger"
+      style="vertical-align: top; margin: 6px 4px"
+    />
+  </a>
+  <a href="#">
+    <img
+      src="https://github.com/MikeCodesDotNET/ColoredBadges/raw/master/svg/dev/frameworks/react.svg"
+      alt="react"
+      style="vertical-align: top; margin: 6px 4px"
+    />
+  </a>
+  <a href="#">
+    <img
+      src="https://github.com/MikeCodesDotNET/ColoredBadges/raw/master/svg/dev/frameworks/vue.svg"
+      alt="vue"
+      style="vertical-align: top; margin: 6px 4px"
+    />
+  </a>
+  <a href="#">
+    <img
+      src="https://github.com/MikeCodesDotNET/ColoredBadges/raw/master/svg/dev/frameworks/wpf.svg"
+      alt="wpf"
       style="vertical-align: top; margin: 6px 4px"
     />
   </a>
@@ -410,12 +470,20 @@
   </a>
   <a href="#">
     <img
+      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/services/nuget.svg"
+      alt="nuget"
+      style="vertical-align: top; margin: 6px 4px"
+    />
+  </a>
+  <a href="#">
+    <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/services/office_365.svg"
       alt="office 365"
       style="vertical-align: top; margin: 6px 4px"
     />
   </a>
 </p>
+
 <p align="center">
   <a href="#">
     <img
@@ -488,6 +556,7 @@
     />
   </a>
 </p>
+
 <p align="center">
   <a href="#">
     <img
