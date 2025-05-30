@@ -44,7 +44,7 @@
 <div align="center">
   <a href="https://wigle.net">
     <img
-      src="https://wigle.net/bi/riIOtiMm+Dry0OgsjGgSww.png"
+      src="https://wigle.net/bi/riIOtiMm+Dry0OgsjGgSww.png?"
       alt="Wigle.net Stats"
     />
   </a>
