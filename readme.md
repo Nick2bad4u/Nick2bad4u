@@ -542,8 +542,8 @@
   </a>
   <a href="#">
     <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/devices/playstation.svg"
-      alt="playstation"
+      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/devices/pc.svg"
+      alt="PC"
       style="vertical-align: top; margin: 6px 4px"
     />
   </a>
