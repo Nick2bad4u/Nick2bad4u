@@ -269,13 +269,6 @@
   </a>
   <a href="#">
     <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/languages/php.svg"
-      alt="php"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/languages/python.svg"
       alt="python"
       style="vertical-align: top; margin: 6px 4px"
@@ -326,13 +319,6 @@
       style="vertical-align: top; margin: 6px 4px"
     />
   </a>
-  <a href="#">
-    <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/raw/master/svg/dev/frameworks/wpf.svg"
-      alt="wpf"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
 </p>
 
 <p align="center">
@@ -380,41 +366,6 @@
   </a>
   <a href="#">
     <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/misc/firefox.svg"
-      alt="firefox"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/misc/gamedev.svg"
-      alt="gamedev"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/misc/iot.svg"
-      alt="iot"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/misc/mobile.svg"
-      alt="mobile"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/misc/security.svg"
-      alt="security"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/misc/tablet.svg"
       alt="tablet"
       style="vertical-align: top; margin: 6px 4px"
@@ -424,13 +375,6 @@
     <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/misc/tools.svg"
       alt="tools"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/misc/vr.svg"
-      alt="vr"
       style="vertical-align: top; margin: 6px 4px"
     />
   </a>
@@ -494,13 +438,6 @@
   </a>
   <a href="#">
     <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/services/kubernetes.svg"
-      alt="kubernetes"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/services/npm.svg"
       alt="npm"
       style="vertical-align: top; margin: 6px 4px"
@@ -541,13 +478,6 @@
     <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/tools/jetbrains_intellij.svg"
       alt="jetbrains_intellij"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/tools/jetbrains_phpstorm.svg"
-      alt="jetbrains_phpstorm"
       style="vertical-align: top; margin: 6px 4px"
     />
   </a>
@@ -612,22 +542,8 @@
   </a>
   <a href="#">
     <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/devices/pc.svg"
-      alt="pc"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/devices/playstation.svg"
       alt="playstation"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/devices/raspberrypi.svg"
-      alt="raspberrypi"
       style="vertical-align: top; margin: 6px 4px"
     />
   </a>
