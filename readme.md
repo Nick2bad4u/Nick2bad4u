@@ -76,7 +76,7 @@
     <img alt="Badge: Forks (dynamic count, flat-square style)" src="https://img.shields.io/github/forks/nick2bad4u/nick2bad4u?style=flat-square&logo=greasyfork" title="Forks">
   </a>
   <a href="https://nick2bad4u.github.io/Nick2bad4u/" title="GitHub Pages Status">
-    <img alt="Badge: GitHub Pages Status (dynamic, flat-square style)" src="https://img.shields.io/website?url=https%3A%2F%2Fnick2bad4u.github.io%2Fnick2bad4u%2F&up_message=Online&down_message=Offline&style=flat-square&logo=github&label=Github%20Pages&cacheSeconds=6000&link=https%3A%2F%2Fnick2bad4u.github.io%2Fnick2bad4u%2F" title="GitHub Pages Status">
+    <img alt="Badge: GitHub Pages Status (dynamic, flat-square style)" src="https://img.shields.io/website?url=https://nick2bad4u.github.io/Nick2bad4u/&up_message=Online&down_message=Offline&style=flat-square&logo=github&label=Github%20Pages&cacheSeconds=6000&link=https://nick2bad4u.github.io/Nick2bad4u/" title="GitHub Pages Status">
   </a>
 </p>
 <div align="center">
