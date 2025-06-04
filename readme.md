@@ -60,7 +60,7 @@
   <a href="https://github.com/nick2bad4u/nick2bad4u/commits" title="View recent commits">
     <img alt="Badge: Last Commit (dynamic date, flat-square style)" src="https://img.shields.io/github/last-commit/nick2bad4u/nick2bad4u?style=flat-square&logo=commonworkflowlanguage" title="Last Commit">
   </a>
-  <a href="https://github.com/nick2bad4u/nick2bad4u" title="GitHub Drama main repository">
+  <a href="https://github.com/nick2bad4u/nick2bad4u" title="main repository">
     <img alt="Badge: Repository Views (dynamic count, flat style)" src="https://views.igorkowalczyk.dev/api/badge/nick2bad4u-Modern?style=flat" title="Repository Views">
   </a>
   <a href="https://github.com/Nick2bad4u/nick2bad4u/blob/main/LICENSE.md" title="View project license">
