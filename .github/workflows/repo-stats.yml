@@ -1,7 +1,7 @@
 name: Metrics - Repository Stats
 on:
   # Schedule updates (daily)
-  schedule: [{ cron: "4 23 * * *" }]
+  schedule: [{ cron: "4 6 * * *" }]
   # Lines below let you run workflow manually and on each commit
   workflow_dispatch:
   push:
