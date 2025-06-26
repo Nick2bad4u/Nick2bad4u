@@ -5,9 +5,9 @@ on:
   # Lines below let you run workflow manually and on each commit
   workflow_dispatch:
   push:
-    branches: [repo-stats]
+    branches: [main]
   pull_request:
-    branches: [repo-stats]
+    branches: [main]
 
 
 jobs:
