@@ -141,7 +141,7 @@ jobs:
           plugin_reactions_limit_discussions_comments: 300
           plugin_reactions_limit_issues: 500
           plugin_repositories: yes
-          plugin_repositories_featured: Nick2bad4u/FitFileViewer, Nick2bad4u/UserStyles, Nick2bad4u/Nick2bad4u, Nick2bad4u/ZwiftScripts, Nick2bad4u/GE-Filters, Nick2bad4u/Sauce4ZwiftModsRepo, Nick2bad4u/TF2
+          plugin_repositories_featured: Nick2bad4u/FitFileViewer, Nick2bad4u/Uptime-Watcher, Nick2bad4u/PS-Color-Scripts-Enhanced, Nick2bad4u/dnsValidator, Nick2bad4u/eslint-plugin-ChunkyLint, Nick2bad4u/Prettier-Plugin-Powershell, Nick2bad4u/UserStyles, Nick2bad4u/Nick2bad4u, Nick2bad4u/GE-Filters
           plugin_repositories_pinned: 6
           plugin_repositories_starred: 8
           plugin_repositories_random: 4
