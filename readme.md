@@ -274,23 +274,9 @@
       style="vertical-align: top; margin: 6px 4px"
     />
   </a>
-  <a href="#">
-    <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/languages/rust.svg"
-      alt="rust"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
 </p>
 
 <p align="center">
-  <a href="#">
-    <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/frameworks/jquery.svg"
-      alt="rust"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
   <a href="#">
     <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/raw/master/svg/dev/frameworks/nodejs.svg"
@@ -300,22 +286,8 @@
   </a>
   <a href="#">
     <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/raw/master/svg/dev/frameworks/nodejs_larger.svg"
-      alt="nodejs larger"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/raw/master/svg/dev/frameworks/react.svg"
       alt="react"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/raw/master/svg/dev/frameworks/vue.svg"
-      alt="vue"
       style="vertical-align: top; margin: 6px 4px"
     />
   </a>
@@ -331,13 +303,6 @@
   </a>
   <a href="#">
     <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/misc/chrome.svg"
-      alt="chrome"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/misc/cloud.svg"
       alt="cloud"
       style="vertical-align: top; margin: 6px 4px"
@@ -345,29 +310,8 @@
   </a>
   <a href="#">
     <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/misc/datascience.svg"
-      alt="datascience"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/misc/desktop.svg"
-      alt="desktop"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/misc/edge.svg"
       alt="edge"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/misc/tablet.svg"
-      alt="tablet"
       style="vertical-align: top; margin: 6px 4px"
     />
   </a>
@@ -405,13 +349,6 @@
     <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/services/digitalocean.svg"
       alt="digitalocean"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/services/dockerhub.svg"
-      alt="dockerhub"
       style="vertical-align: top; margin: 6px 4px"
     />
   </a>
@@ -476,27 +413,6 @@
   </a>
   <a href="#">
     <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/tools/jetbrains_intellij.svg"
-      alt="jetbrains_intellij"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/tools/jetbrains_pycharm.svg"
-      alt="jetbrains_pycharm"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/tools/jetbrains_rubymine.svg"
-      alt="jetbrains_rubymine"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/tools/powershell.svg"
       alt="powershell"
       style="vertical-align: top; margin: 6px 4px"
@@ -535,29 +451,8 @@
   </a>
   <a href="#">
     <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/devices/mac.svg"
-      alt="mac"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/devices/pc.svg"
       alt="PC"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/devices/wearables.svg"
-      alt="wearables"
-      style="vertical-align: top; margin: 6px 4px"
-    />
-  </a>
-  <a href="#">
-    <img
-      src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/devices/xbox.svg"
-      alt="xbox"
       style="vertical-align: top; margin: 6px 4px"
     />
   </a>
