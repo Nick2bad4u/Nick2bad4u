@@ -468,7 +468,7 @@
 
 <div align="center">
     <img
-      src="https://raw.githubusercontent.com/Nick2bad4u/Nick2bad4u/refs/heads/repo-stats/metrics.user.svg"
+      src="https://raw.githubusercontent.com/Nick2bad4u/Nick2bad4u/refs/heads/main/metrics.user.svg"
       alt="Github Metrics"
       width="100%"
     />
