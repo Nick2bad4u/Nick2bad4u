@@ -43,11 +43,11 @@ jobs:
 
           # Options
           filename: metrics.user.svg
-          user: nick2bad4u
+          user: Nick2bad4u
           template: classic
           base: header, activity, community, repositories, metadata
           base_indepth: yes
-          commits_authoring: nick2bad4u
+          commits_authoring: Nick2bad4u
           config_display: large
           config_octicon: yes
           config_timezone: America/Detroit
@@ -59,7 +59,7 @@ jobs:
           # Achievements plugin disabled due to Projects (classic) API deprecation. Re-enable when plugin is updated.
           plugin_activity: yes
           plugin_activity_days: 30
-          plugin_activity_filter: all
+        # plugin_activity_filter: all
           plugin_activity_limit: 10
           plugin_activity_load: 500
           plugin_activity_visibility: all
