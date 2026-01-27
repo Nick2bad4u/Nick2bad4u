@@ -1,47 +1,32 @@
-<div align="center">
-  <span style="display: inline-block; margin: 10px">
-    <img
-      src="https://komarev.com/ghpvc/?username=nick2bad4u&color=blueviolet&style=flat-square"
-      alt="Profile Views"
-    />
-  </span>
-  <span style="display: inline-block; margin: 10px">
-    <a href="https://hits.sh/github.com/Nick2bad4u/Nick2bad4u/">
-      <img
-        src="https://hits.sh/github.com/Nick2bad4u/Nick2bad4u.svg?view=today-total&label=Vists&extraCount=200&color=8511cc&logo=github"
-        alt="Hits"
-      />
-    </a>
-  </span>
-  <span style="display: inline-block; margin: 10px">
-    <img
-      src="https://img.shields.io/github/followers/nick2bad4u?style=social"
-      alt="Followers"
-    />
-  </span>
-  <span style="display: inline-block; margin: 10px">
-    <img
-      src="https://img.shields.io/github/stars/nick2bad4u?style=social"
-      alt="Stars"
-    />
-  </span>
-  <span style="display: inline-block; margin: 10px">
-    <img
-      src="https://hit.yhype.me/github/profile?user_id=20943337"
-      alt="Hits2"
-    />
-  </span>
-  <span style="display: inline-block; margin: 10px">
-    <a href="https://github.com/Nick2bad4u/UserStyles/actions/workflows/Snake.yml">
-      <img
-        src="https://github.com/Nick2bad4u/UserStyles/actions/workflows/Snake.yml/badge.svg"
-        alt="Snake Contributions"
-      />
-    </a>
-  </span>
-</div>
-<br />
 <p align="center">
+  <img
+    src="https://wakatime.com/badge/user/d28a71fb-e092-434b-a8ec-b5b9e4aadb81.svg?style=flat-square"
+    alt="WakaTime Total Coding Time since Jan 24 2026"
+  />
+  <a href="https://hits.sh/github.com/Nick2bad4u/Nick2bad4u/">
+    <img
+      src="https://hits.sh/github.com/Nick2bad4u/Nick2bad4u.svg?view=today-total&label=Vists&extraCount=200&color=8511cc&logo=github&style=flat-square"
+      alt="Hits"
+    />
+  </a>
+  <img
+    src="https://img.shields.io/github/followers/nick2bad4u?style=flat-square"
+    alt="Followers"
+  />
+  <img
+    src="https://img.shields.io/github/stars/nick2bad4u?style=flat-square"
+    alt="Stars"
+  />
+  <img
+    src="https://hit.yhype.me/github/profile?user_id=20943337"
+    alt="Hits2"
+  />
+  <a href="https://github.com/Nick2bad4u/UserStyles/actions/workflows/Snake.yml">
+    <img
+      src="https://github.com/Nick2bad4u/UserStyles/actions/workflows/Snake.yml/badge.svg"
+      alt="Snake Contributions"
+    />
+  </a>
   <a href="https://github.com/nick2bad4u/nick2bad4u/pulls" title="View or submit pull requests">
     <img alt="Badge: PRs Welcome (green, flat-square style)" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square&logo=github" title="PRs Welcome">
   </a>
@@ -67,10 +52,10 @@
     <img alt="Badge: License (UnLicense, flat-square style)" src="https://img.shields.io/github/license/nick2bad4u/nick2bad4u?style=flat-square&logo=unlicense" title="License: UnLicense">
   </a>
   <a href="https://prettier.io/" title="Code Style: Prettier">
-    <img alt="Badge: Code Style (Prettier, pink, flat-square style)" src="https://img.shields.io/badge/code%20style-prettier-ff69b4.svg" title="Code Style: Prettier">
+    <img alt="Badge: Code Style (Prettier, pink, flat-square style)" src="https://img.shields.io/badge/code%20style-prettier-ff69b4.svg?style=flat-square" title="Code Style: Prettier">
   </a>
   <a href="https://github.com/Nick2bad4u/nick2bad4u/blob/main/README.md" title="Made with Markdown">
-    <img alt="Badge: Made with (Markdown, blue, flat-square style)" src="https://img.shields.io/badge/made%20with-Markdown-blue" title="Made with Markdown">
+    <img alt="Badge: Made with (Markdown, blue, flat-square style)" src="https://img.shields.io/badge/made%20with-Markdown-blue?style=flat-square" title="Made with Markdown">
   </a>
   <a href="https://github.com/Nick2bad4u/nick2bad4u/forks" title="Forks">
     <img alt="Badge: Forks (dynamic count, flat-square style)" src="https://img.shields.io/github/forks/nick2bad4u/nick2bad4u?style=flat-square&logo=greasyfork" title="Forks">
@@ -274,9 +259,6 @@
       style="vertical-align: top; margin: 6px 4px"
     />
   </a>
-</p>
-
-<p align="center">
   <a href="#">
     <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/raw/master/svg/dev/frameworks/nodejs.svg"
@@ -291,9 +273,6 @@
       style="vertical-align: top; margin: 6px 4px"
     />
   </a>
-</p>
-
-<p align="center">
   <a href="#">
     <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/misc/ai.svg"
@@ -329,8 +308,6 @@
       style="vertical-align: top; margin: 6px 4px"
     />
   </a>
-</p>
-<p align="center">
   <a href="#">
     <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/services/aws.svg"
@@ -394,9 +371,6 @@
       style="vertical-align: top; margin: 6px 4px"
     />
   </a>
-</p>
-
-<p align="center">
   <a href="#">
     <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/dev/tools/bash.svg"
@@ -439,9 +413,6 @@
       style="vertical-align: top; margin: 6px 4px"
     />
   </a>
-</p>
-
-<p align="center">
   <a href="#">
     <img
       src="https://github.com/MikeCodesDotNET/ColoredBadges/blob/master/svg/devices/cisco.svg"
