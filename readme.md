@@ -122,6 +122,13 @@
       alt="Top Languages"
     />
   </a>
+  <a href="https://wakatime.com">
+    <img
+      height="600px"
+      src="https://wakatime.com/share/@Typpi/e0c60bae-ea55-4dcc-a316-3c348a8850ea.svg"
+      alt="WakaTime"
+    />
+  </a>
 
 <div align="center">
     <img
