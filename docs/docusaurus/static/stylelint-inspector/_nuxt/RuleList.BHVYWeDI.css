@@ -1,0 +1,41 @@
+.colorized-rule-name[data-v-e8ebe894] {
+    position: relative;
+    display: inline-flex;
+    overflow: hidden;
+    align-items: baseline;
+    inline-size: 100%;
+    max-inline-size: 100%;
+    min-inline-size: 0;
+    white-space: nowrap;
+}
+.colorized-rule-name--button[data-v-e8ebe894] {
+    padding: 0;
+    border: 0;
+    appearance: none;
+    background: 0 0;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    text-align: start;
+}
+.colorized-rule-name__name[data-v-e8ebe894] {
+    overflow: hidden;
+    flex: auto;
+    min-inline-size: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.colorized-rule-name--hoverable[data-v-e8ebe894]:focus-visible,
+.colorized-rule-name--hoverable[data-v-e8ebe894]:hover {
+    z-index: 20;
+    overflow: visible;
+    inline-size: max-content;
+    max-inline-size: min(72ch, 100vi - 8rem);
+}
+.colorized-rule-name--hoverable:focus-visible
+    .colorized-rule-name__name[data-v-e8ebe894],
+.colorized-rule-name--hoverable:hover
+    .colorized-rule-name__name[data-v-e8ebe894] {
+    overflow: visible;
+    text-overflow: clip;
+}

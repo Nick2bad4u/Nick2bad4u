@@ -1,0 +1,1 @@
+import{F as e,P as t,i as n}from"./3_mkTJ2v.js";import{c as r}from"#entry";function i(r){let i=r||n();return i.ssrContext?.head||i.runWithContext(()=>{if(t()){let t=e(`usehead`);if(!t)throw Error(`[nuxt] [unhead] Missing Unhead instance.`);return t}})}function a(e,t={}){return r(e,{head:t.head||i(t.nuxt),...t})}export{a as t};
