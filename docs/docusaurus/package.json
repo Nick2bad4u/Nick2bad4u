@@ -1,24 +1,24 @@
 {
     "$schema": "https://www.schemastore.org/package.json",
-    "name": "@eslint-plugin-typefest/docs",
+    "name": "@nick2bad4u/docs",
     "version": "0.1.0",
     "private": true,
-    "description": "Docusaurus documentation site for eslint-plugin-typefest.",
+    "description": "Docusaurus portfolio site for Nick2bad4u GitHub projects.",
     "keywords": [
         "docusaurus",
         "documentation",
-        "eslint",
-        "eslint-plugin",
-        "type-fest",
+        "github",
+        "portfolio",
+        "projects",
         "typescript"
     ],
-    "homepage": "https://nick2bad4u.github.io/eslint-plugin-typefest/",
+    "homepage": "https://nick2bad4u.github.io/Nick2bad4u/",
     "bugs": {
-        "url": "https://github.com/Nick2bad4u/eslint-plugin-typefest/issues"
+        "url": "https://github.com/Nick2bad4u/Nick2bad4u/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Nick2bad4u/eslint-plugin-typefest.git"
+        "url": "git+https://github.com/Nick2bad4u/Nick2bad4u.git"
     },
     "license": "MIT",
     "author": "Nick2bad4u",
@@ -26,29 +26,26 @@
         {
             "name": "Nick2bad4u",
             "email": "20943337+Nick2bad4u@users.noreply.github.com",
-            "url": "https://nick2bad4u.github.io/eslint-plugin-typefest"
+            "url": "https://nick2bad4u.github.io/Nick2bad4u/"
         }
     ],
     "sideEffects": false,
     "main": "docusaurus.config.ts",
     "files": [
-        "site-docs"
+        "portfolio-docs"
     ],
     "scripts": {
-        "build": "npm run docs:api && npm --prefix ../.. run build:eslint-inspector && npm --prefix ../.. run build:stylelint-inspector && docusaurus build",
-        "build:fast": "cross-env DOCUSAURUS_ENABLE_EXPERIMENTAL=true docusaurus build",
-        "build:local": "npm run docs:api:local && npm --prefix ../.. run build:eslint-inspector:local && npm --prefix ../.. run build:stylelint-inspector:local && cross-env NODE_OPTIONS=--no-deprecation docusaurus build",
+        "build": "docusaurus build",
+        "build:fast": "docusaurus build",
+        "build:local": "cross-env NODE_OPTIONS=--no-deprecation docusaurus build",
         "clear": "docusaurus clear",
         "deploy": "docusaurus deploy",
-        "docs:api": "node -e \"const { execSync } = require('node:child_process'); const isCi = process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true'; const command = isCi ? 'typedoc --options typedoc.config.json' : 'node ../../scripts/run-typedoc-docs.mjs --config typedoc.config.json'; execSync(command, { stdio: 'inherit' });\"",
-        "docs:api:default": "typedoc --options typedoc.config.json",
-        "docs:api:local": "node ../../scripts/run-typedoc-docs.mjs --config typedoc.local.config.mjs",
         "docusaurus": "docusaurus",
         "serve": "docusaurus serve",
         "start": "docusaurus start --host localhost",
         "start:devtools": "cross-env DOCUSAURUS_BASE_URL=/ docusaurus start --host localhost",
         "type:css": "npx typed-css-modules .\\src",
-        "typecheck": "tsc --project tsconfig.json --noEmit && tsc --project tsconfig.typedoc.json --noEmit",
+        "typecheck": "tsc --project tsconfig.json --noEmit",
         "write-heading-ids": "docusaurus write-heading-ids",
         "write-translations": "docusaurus write-translations"
     },

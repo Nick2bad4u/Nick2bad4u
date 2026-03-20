@@ -17,14 +17,10 @@
         "build",
         "node_modules"
     ],
-    "extends": [
-        "../../tsconfig.json",
-        "@docusaurus/tsconfig"
-    ],
+    "extends": "@docusaurus/tsconfig",
     "include": [
         "docusaurus.config.ts",
         "sidebars.ts",
-        "sidebars.rules.ts",
         "src/**/*"
     ]
 }

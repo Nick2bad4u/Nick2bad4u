@@ -1,0 +1,28 @@
+declare const styles: {
+  readonly "actions": string;
+  readonly "badge": string;
+  readonly "badgeApplications": string;
+  readonly "badgeArchived": string;
+  readonly "badgeAutomation": string;
+  readonly "badgeFeatured": string;
+  readonly "badgeFitness": string;
+  readonly "badgeFork": string;
+  readonly "badgeGaming": string;
+  readonly "badgePowerShell": string;
+  readonly "badgeRow": string;
+  readonly "badgeTooling": string;
+  readonly "card": string;
+  readonly "description": string;
+  readonly "featuredCard": string;
+  readonly "language": string;
+  readonly "metaItem": string;
+  readonly "metaList": string;
+  readonly "primaryAction": string;
+  readonly "secondaryAction": string;
+  readonly "title": string;
+  readonly "titleRow": string;
+  readonly "topic": string;
+  readonly "topicList": string;
+};
+export = styles;
+

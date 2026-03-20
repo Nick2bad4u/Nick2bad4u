@@ -1,0 +1,298 @@
+.page {
+    padding: 2rem 0 3.5rem;
+}
+
+.heroSection {
+    display: grid;
+    gap: 1.2rem;
+}
+
+.heroHeader {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.kicker {
+    display: inline-flex;
+    padding: 0.25rem 0.68rem;
+    border: 1px solid rgb(99 102 241 / 22%);
+    border-radius: 999px;
+    margin: 0 0 0.75rem;
+    background: rgb(99 102 241 / 10%);
+    color: var(--ifm-color-primary);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.title {
+    margin: 0;
+    font-size: clamp(2rem, 3.8vi, 3rem);
+    text-wrap: balance;
+}
+
+.subtitle {
+    margin: 0.75rem 0 0;
+    color: var(--ifm-color-emphasis-700);
+    font-size: 1.02rem;
+    line-height: 1.7;
+    max-inline-size: 45rem;
+}
+
+.heroActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.collectionBrowser {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.collectionChip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid var(--ifm-color-emphasis-300);
+    border-radius: 999px;
+    background: var(--ifm-background-surface-color);
+    color: var(--ifm-font-color-base);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+}
+
+.collectionChip:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.collectionChipActive {
+    border-color: rgb(99 102 241 / 28%);
+    background: rgb(99 102 241 / 10%);
+    color: var(--ifm-color-primary);
+}
+
+.collectionChipCount {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: 1.7rem;
+    padding: 0.18rem 0.48rem;
+    border-radius: 999px;
+    background: rgb(15 23 42 / 8%);
+    color: var(--ifm-color-emphasis-700);
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.summaryGrid {
+    display: grid;
+    gap: 0.9rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.summaryCard {
+    padding: 0.95rem 1rem;
+    border: 1px solid var(--ifm-color-emphasis-200);
+    border-radius: 1rem;
+    background: var(--ifm-card-background-color);
+    box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.summaryValue {
+    margin: 0;
+    color: var(--ifm-color-primary);
+    font-size: clamp(1.7rem, 3vi, 2.25rem);
+    font-weight: 800;
+}
+
+.summaryLabel {
+    margin: 0.2rem 0 0;
+    color: var(--ifm-color-emphasis-700);
+    font-size: 0.92rem;
+}
+
+.dataBanner {
+    padding: 0.95rem 1rem;
+    border: 1px solid rgb(59 130 246 / 20%);
+    border-radius: 1rem;
+    background:
+        linear-gradient(
+            160deg,
+            rgb(59 130 246 / 10%),
+            rgb(14 165 233 / 8%) 60%,
+            transparent
+        ),
+        var(--ifm-background-surface-color);
+}
+
+.dataBannerTitle {
+    margin: 0;
+    font-weight: 800;
+}
+
+.dataBannerDescription {
+    margin: 0.35rem 0 0;
+    color: var(--ifm-color-emphasis-700);
+}
+
+.controlsSection {
+    display: grid;
+    gap: 0.85rem;
+    margin-top: 1.6rem;
+}
+
+.controlsGrid {
+    display: grid;
+    gap: 0.85rem;
+    grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr));
+}
+
+.controlField {
+    display: grid;
+    gap: 0.42rem;
+}
+
+.controlLabel {
+    color: var(--ifm-color-emphasis-800);
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.controlInput {
+    padding: 0.78rem 0.9rem;
+    border: 1px solid var(--ifm-color-emphasis-300);
+    border-radius: 0.85rem;
+    background: var(--ifm-background-surface-color);
+    color: var(--ifm-font-color-base);
+    font: inherit;
+}
+
+.toggleRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--ifm-color-emphasis-800);
+    font-weight: 600;
+}
+
+.resultsSummary {
+    margin: 0;
+    color: var(--ifm-color-emphasis-700);
+}
+
+.gridSection {
+    margin-top: 1.25rem;
+}
+
+.collectionSectionList {
+    display: grid;
+    gap: 1.4rem;
+}
+
+.collectionSection {
+    display: grid;
+    gap: 1rem;
+}
+
+.collectionSectionHeader {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.collectionSectionKicker {
+    margin: 0 0 0.32rem;
+    color: var(--ifm-color-primary);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.collectionSectionTitle {
+    margin: 0;
+    font-size: clamp(1.45rem, 2.4vi, 1.9rem);
+}
+
+.collectionSectionDescription {
+    margin: 0.45rem 0 0;
+    color: var(--ifm-color-emphasis-700);
+    line-height: 1.7;
+    max-inline-size: 48rem;
+}
+
+.collectionCountPill {
+    display: inline-flex;
+    padding: 0.35rem 0.78rem;
+    border: 1px solid rgb(99 102 241 / 18%);
+    border-radius: 999px;
+    background: rgb(99 102 241 / 8%);
+    color: var(--ifm-color-primary);
+    font-size: 0.82rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.projectGrid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+}
+
+.emptyState {
+    padding: 1.5rem;
+    border: 1px dashed var(--ifm-color-emphasis-300);
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.emptyState :global(h2) {
+    margin-bottom: 0.4rem;
+}
+
+@media (width <= 996px) {
+    .heroHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .summaryGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .controlsGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .collectionSectionHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (width <= 640px) {
+    .page {
+        padding-top: 1.4rem;
+    }
+
+    .summaryGrid,
+    .controlsGrid {
+        grid-template-columns: 1fr;
+    }
+}

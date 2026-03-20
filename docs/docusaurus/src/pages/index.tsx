@@ -1,254 +1,304 @@
 import Link from "@docusaurus/Link";
-import useBaseUrl from "@docusaurus/useBaseUrl";
 import Layout from "@theme/Layout";
 import Heading from "@theme/Heading";
-import GitHubStats from "../components/GitHubStats";
 
+import ProjectCard from "../components/ProjectCard";
+import {
+    getProjectCollectionSections,
+    getProjectTotals,
+    githubProfile,
+    isEslintPluginRepository,
+    isFeaturedRepository,
+    usePortfolioRepositories,
+} from "../lib/portfolio";
 import styles from "./index.module.css";
 
-type HeroBadge = {
-    readonly description: string;
-    readonly icon: string;
-    readonly label: string;
-};
-
-type HeroStat = {
-    readonly description: string;
-    readonly headline: string;
-};
-
-type HomeCard = {
-    readonly description: string;
-    readonly icon: string;
-    readonly title: string;
-    readonly to: string;
-};
-
-/**
- * Hero badges Note: These icons are from the "Nerd Font Symbols" font.
- *
- * @see https://www.nerdfonts.com/cheat-sheet for available icons in the "Nerd Font Symbols" font
- */
-const heroBadges = [
-    {
-        description: "Drop-in config for ESLint v9+ and modern repos.",
-        icon: "\uf013",
-        label: "Flat Config native",
-    },
-    {
-        description: "Type-aware guidance without sacrificing readability.",
-        icon: "\ue628",
-        label: "TypeScript-first",
-    },
-    {
-        description: "Clear diagnostics with safe autofixes and suggestions.",
-        icon: "\uf0ad",
-        label: "Actionable rule docs",
-    },
-] as const satisfies readonly HeroBadge[];
-
-/**
- * Hero stats Note: These icons are from the "Nerd Font Symbols" font.
- *
- * @see https://www.nerdfonts.com/cheat-sheet for available icons in the "Nerd Font Symbols" font
- */
-const heroStats = [
-    {
-        description: "Type-safe patterns from type-fest and ts-extras.",
-        headline: "\uf0ca 70+ Rules",
-    },
-    {
-        description: "Start small, then scale to stricter coverage.",
-        headline: "\ue690 6 Presets",
-    },
-    {
-        description: "Safe rewrites where semantics are preserved.",
-        headline: "\udb80\udc68 DX-first Autofix & Suggestions",
-    },
-] as const satisfies readonly HeroStat[];
-
-/**
- * Button icons Note: These icons are from the "Nerd Font Symbols" font.
- *
- * @see https://www.nerdfonts.com/cheat-sheet for available icons in the "Nerd Font Symbols" font
- */
-const overviewButtonIcon = "\udb81\udf1d";
-const comparePresetsButtonIcon = "\udb85\udc92";
-const heroKickerIcon = "\uf0ad";
-const heroKickerIcon2 = "\uf135";
-
-/**
- * Home card icons Note: These icons are from the "Nerd Font Symbols" font,
- * which is included in the site styles. If you change these icons, make sure to
- * choose ones that exist in that font or adjust the font-family in the CSS
- * accordingly.
- *
- * @see https://www.nerdfonts.com/cheat-sheet for available icons in the "Nerd Font Symbols" font
- */
-const homeCards = [
-    {
-        icon: "\uf135",
-        title: "Get Started",
-        description:
-            "Install the plugin, enable a preset, and start enforcing type-safe ts-extras and type-fest patterns.",
-        to: "/docs/rules/getting-started",
-    },
-    {
-        icon: "\ue690",
-        title: "Presets",
-        description:
-            "Choose the right preset for your team, from minimal baseline to full strict coverage.",
-        to: "/docs/rules/presets",
-    },
-    {
-        icon: "\uf02d",
-        title: "Rule Reference",
-        description:
-            "Browse every rule with concrete incorrect/correct examples and migration guidance.",
-        to: "/docs/rules",
-    },
-] as const satisfies readonly HomeCard[];
-
 export default function Home() {
-    const logoSrc = useBaseUrl("/img/logo.svg");
+    const { errorMessage, fetchStatus, repositories, source } =
+        usePortfolioRepositories();
+    const totals = getProjectTotals(repositories);
+    const collectionSections = getProjectCollectionSections(
+        repositories,
+        "featured"
+    );
+    const eslintSection = collectionSections.find(
+        (section) => section.collection.id === "eslint-plugins"
+    );
+    const featuredRepositories = collectionSections
+        .flatMap((section) => section.repositories)
+        .filter(
+            (repository) =>
+                isFeaturedRepository(repository) &&
+                !isEslintPluginRepository(repository)
+        )
+        .slice(0, 6);
 
     return (
         <Layout
-            title="eslint-plugin-typefest docs"
-            description="Documentation for eslint-plugin-typefest"
+            title="GitHub project portfolio"
+            description="A Docusaurus-powered portfolio for Nick2bad4u GitHub projects, demos, tools, and experiments."
         >
             <header className={styles.heroBanner}>
-                <div className={`container ${styles.heroContent}`}>
-                    <div className={styles.heroGrid}>
-                        <div>
-                            <p className={styles.heroKicker}>
-                                {`${heroKickerIcon} ESLint plugin for modern TypeScript teams ${heroKickerIcon2}`}
-                            </p>
-                            <Heading as="h1" className={styles.heroTitle}>
-                                eslint-plugin-typefest
-                            </Heading>
-                            <p className={styles.heroSubtitle}>
-                                ESLint rules that recommend safer, clearer
-                                TypeScript types, type guards, and other
-                                patterns by utilizing{" "}
-                                <Link
-                                    className={`${styles.heroInlineLink} ${styles.heroInlineLinkTypeFest}`}
-                                    href="https://github.com/sindresorhus/type-fest"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    type-fest
-                                </Link>{" "}
-                                and{" "}
-                                <Link
-                                    className={`${styles.heroInlineLink} ${styles.heroInlineLinkTsExtras}`}
-                                    href="https://github.com/sindresorhus/ts-extras"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    ts-extras
-                                </Link>
-                            </p>
+                <div className={`container ${styles.heroLayout}`}>
+                    <div className={styles.heroCopy}>
+                        <p className={styles.heroKicker}>GitHub portfolio</p>
+                        <Heading as="h1" className={styles.heroTitle}>
+                            Shipping tooling, apps, automation, and experiments.
+                        </Heading>
+                        <p className={styles.heroSubtitle}>
+                            This site showcases the public repositories from{" "}
+                            <Link
+                                className={styles.heroInlineLink}
+                                href={githubProfile.profileUrl}
+                            >
+                                @{githubProfile.username}
+                            </Link>
+                            , starting with featured projects and continuing into
+                            a searchable explorer for the full catalog.
+                        </p>
 
-                            <div className={styles.heroBadgeRow}>
-                                {heroBadges.map((badge) => (
-                                    <article
-                                        key={badge.label}
-                                        className={styles.heroBadge}
-                                    >
-                                        <p className={styles.heroBadgeLabel}>
-                                            <span
-                                                aria-hidden="true"
-                                                className={styles.heroBadgeIcon}
-                                            >
-                                                {badge.icon}
-                                            </span>
-                                            {badge.label}
-                                        </p>
-                                        <p
-                                            className={
-                                                styles.heroBadgeDescription
-                                            }
-                                        >
-                                            {badge.description}
-                                        </p>
-                                    </article>
-                                ))}
-                            </div>
-
-                            <div className={styles.heroActions}>
-                                <Link
-                                    className={`button button--lg ${styles.heroActionButton} ${styles.heroActionPrimary}`}
-                                    to="/docs/rules/overview"
-                                >
-                                    {overviewButtonIcon} Start with Overview
-                                </Link>
-                                <Link
-                                    className={`button button--lg ${styles.heroActionButton} ${styles.heroActionSecondary}`}
-                                    to="/docs/rules/presets"
-                                >
-                                    {comparePresetsButtonIcon} Compare Presets
-                                </Link>
-                            </div>
+                        <div className={styles.heroActions}>
+                            <Link
+                                className="button button--primary button--lg"
+                                to="/projects"
+                            >
+                                Browse all projects
+                            </Link>
+                            <Link
+                                className="button button--secondary button--lg"
+                                to="/docs/intro"
+                            >
+                                Read portfolio docs
+                            </Link>
                         </div>
 
-                        <aside className={styles.heroPanel}>
-                            <img
-                                alt="eslint-plugin-typefest logo"
-                                className={styles.heroPanelLogo}
-                                decoding="async"
-                                height="240"
-                                loading="eager"
-                                src={logoSrc}
-                                width="240"
-                            />
-                        </aside>
+                        <div className={styles.heroStatus}>
+                            <span className={styles.statusPill}>
+                                {source === "live"
+                                    ? "Live GitHub data"
+                                    : "Bundled repository snapshot"}
+                            </span>
+                            <span className={styles.statusNote}>
+                                {fetchStatus === "loading"
+                                    ? "Refreshing from the GitHub API..."
+                                    : errorMessage ??
+                                      "The site refreshes from the public GitHub API when possible."}
+                            </span>
+                        </div>
                     </div>
 
-                    <GitHubStats className={styles.heroLiveBadges} />
-
-                    <div className={styles.heroStats}>
-                        {heroStats.map((stat) => (
-                            <article
-                                key={stat.headline}
-                                className={styles.heroStatCard}
-                            >
-                                <p className={styles.heroStatHeading}>
-                                    {stat.headline}
+                    <aside className={styles.profilePanel}>
+                        <img
+                            alt="Nick2bad4u GitHub avatar"
+                            className={styles.avatar}
+                            decoding="async"
+                            height="192"
+                            loading="eager"
+                            src={githubProfile.avatarUrl}
+                            width="192"
+                        />
+                        <Heading as="h2" className={styles.profileName}>
+                            {githubProfile.displayName}
+                        </Heading>
+                        <p className={styles.profileHandle}>
+                            @{githubProfile.username}
+                        </p>
+                        <div className={styles.profileStats}>
+                            <div>
+                                <p className={styles.profileStatValue}>
+                                    {totals.totalRepositories}
                                 </p>
-                                <p className={styles.heroStatDescription}>
-                                    {stat.description}
+                                <p className={styles.profileStatLabel}>
+                                    repos tracked
                                 </p>
-                            </article>
-                        ))}
-                    </div>
+                            </div>
+                            <div>
+                                <p className={styles.profileStatValue}>
+                                    {totals.totalStars}
+                                </p>
+                                <p className={styles.profileStatLabel}>stars</p>
+                            </div>
+                            <div>
+                                <p className={styles.profileStatValue}>
+                                    {totals.demos + totals.packages}
+                                </p>
+                                <p className={styles.profileStatLabel}>
+                                    external links
+                                </p>
+                            </div>
+                        </div>
+                        <div className={styles.languageList}>
+                            {totals.topLanguages.map((language) => (
+                                <span
+                                    key={language.language}
+                                    className={styles.languagePill}
+                                >
+                                    {language.language} · {language.count}
+                                </span>
+                            ))}
+                        </div>
+                    </aside>
                 </div>
             </header>
 
             <main className={styles.mainContent}>
-                <section className="container">
-                    <div className={styles.cardGrid}>
-                        {homeCards.map((card) => (
-                            <article key={card.title} className={styles.card}>
-                                <div className={styles.cardHeader}>
-                                    <p className={styles.cardIcon}>
-                                        {card.icon}
+                <section className={`container ${styles.collectionsSection}`}>
+                    <div className={styles.sectionHeader}>
+                        <div>
+                            <p className={styles.sectionKicker}>Grouped showcase</p>
+                            <Heading as="h2" className={styles.sectionTitle}>
+                                Browse the portfolio by project family
+                            </Heading>
+                            <p className={styles.sectionDescription}>
+                                Instead of a flat repo dump, the site groups your
+                                work into clearer collections so the ESLint plugins,
+                                apps, PowerShell work, and hobby projects each read
+                                like part of a bigger body of work.
+                            </p>
+                        </div>
+                        <Link className={styles.sectionLink} to="/projects">
+                            Open grouped explorer →
+                        </Link>
+                    </div>
+
+                    <div className={styles.collectionGrid}>
+                        {collectionSections.map((section) => (
+                            <article
+                                key={section.collection.id}
+                                className={styles.collectionCard}
+                            >
+                                <div className={styles.collectionMetaRow}>
+                                    <p className={styles.collectionLabel}>
+                                        {section.collection.shortLabel}
                                     </p>
-                                    <Heading
-                                        as="h2"
-                                        className={styles.cardTitle}
-                                    >
-                                        {card.title}
-                                    </Heading>
+                                    <span className={styles.collectionCount}>
+                                        {section.repositories.length} repos
+                                    </span>
                                 </div>
-                                <p className={styles.cardDescription}>
-                                    {card.description}
+                                <Heading
+                                    as="h3"
+                                    className={styles.collectionTitle}
+                                >
+                                    {section.collection.title}
+                                </Heading>
+                                <p className={styles.collectionDescription}>
+                                    {section.collection.description}
                                 </p>
-                                <Link className={styles.cardLink} to={card.to}>
-                                    Open section →
+                                <ul className={styles.collectionExampleList}>
+                                    {section.repositories
+                                        .slice(0, 3)
+                                        .map((repository) => (
+                                            <li
+                                                key={repository.name}
+                                                className={styles.collectionExample}
+                                            >
+                                                {repository.name}
+                                            </li>
+                                        ))}
+                                </ul>
+                                <Link
+                                    className={styles.collectionLink}
+                                    to={`/projects?collection=${section.collection.id}`}
+                                >
+                                    View collection →
                                 </Link>
                             </article>
                         ))}
+                    </div>
+                </section>
+
+                {eslintSection !== undefined ? (
+                    <section className={`container ${styles.eslintSection}`}>
+                        <div className={styles.sectionHeader}>
+                            <div>
+                                <p className={styles.sectionKicker}>
+                                    ESLint plugin family
+                                </p>
+                                <Heading as="h2" className={styles.sectionTitle}>
+                                    Your ESLint plugins now live together as one showcase
+                                </Heading>
+                                <p className={styles.sectionDescription}>
+                                    This collection groups the plugin work into a
+                                    single visible lane, making it easier to see
+                                    the breadth of your lint tooling instead of
+                                    scattering each package across the whole site.
+                                </p>
+                            </div>
+                            <div className={styles.collectionSpotlightStats}>
+                                <span className={styles.collectionSpotlightPill}>
+                                    {eslintSection.repositories.length} plugins
+                                </span>
+                                <Link
+                                    className={styles.sectionLink}
+                                    to="/projects?collection=eslint-plugins"
+                                >
+                                    Open full plugin group →
+                                </Link>
+                            </div>
+                        </div>
+
+                        <div className={styles.projectGrid}>
+                            {eslintSection.repositories
+                                .slice(0, 4)
+                                .map((repository) => (
+                                    <ProjectCard
+                                        key={repository.name}
+                                        repository={repository}
+                                    />
+                                ))}
+                        </div>
+                    </section>
+                ) : null}
+
+                <section className={`container ${styles.featuredSection}`}>
+                    <div className={styles.sectionHeader}>
+                        <div>
+                            <p className={styles.sectionKicker}>Featured work</p>
+                            <Heading as="h2" className={styles.sectionTitle}>
+                                Start with the projects that best represent the wider portfolio
+                            </Heading>
+                            <p className={styles.sectionDescription}>
+                                These repositories span developer tooling,
+                                utilities, dashboards, and experiments with the
+                                clearest public-facing value.
+                            </p>
+                        </div>
+                        <Link className={styles.sectionLink} to="/projects">
+                            View the full explorer →
+                        </Link>
+                    </div>
+
+                    <div className={styles.projectGrid}>
+                        {featuredRepositories.map((repository) => (
+                            <ProjectCard
+                                key={repository.name}
+                                repository={repository}
+                            />
+                        ))}
+                    </div>
+                </section>
+
+                <section className={`container ${styles.ctaSection}`}>
+                    <div className={styles.ctaCard}>
+                        <div>
+                            <p className={styles.sectionKicker}>Keep exploring</p>
+                            <Heading as="h2" className={styles.sectionTitle}>
+                                Want the whole picture?
+                            </Heading>
+                            <p className={styles.sectionDescription}>
+                                Open the project explorer to search every public
+                                repository, or read the docs to understand the
+                                main focus areas behind the work.
+                            </p>
+                        </div>
+                        <div className={styles.ctaActions}>
+                            <Link className="button button--primary" to="/projects">
+                                Open projects explorer
+                            </Link>
+                            <Link className="button button--secondary" to="/docs/focus-areas">
+                                Read focus areas
+                            </Link>
+                        </div>
                     </div>
                 </section>
             </main>
