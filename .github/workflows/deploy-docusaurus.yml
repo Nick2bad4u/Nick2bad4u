@@ -44,7 +44,7 @@ jobs:
               with:
                   node-version-file: .node-version
                   cache: npm
-                  cache-dependency-path: package-lock.json
+                  cache-dependency-path: docs/docusaurus/package-lock.json
 
             - name: Upgrade npm
               run: npm install -g npm@11
