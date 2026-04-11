@@ -12,3 +12,7 @@ repos:
   rev: v2.17.2
   hooks:
   - id: pylint
+- repo: https://github.com/pre-commit/mirrors-eslint
+  rev: v8.38.0
+  hooks:
+  - id: eslint
