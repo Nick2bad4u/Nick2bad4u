@@ -20,7 +20,6 @@ concurrency:
   cancel-in-progress: false
 on:
   push:
-
   workflow_dispatch:
 
 permissions:

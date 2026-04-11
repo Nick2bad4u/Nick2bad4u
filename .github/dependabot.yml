@@ -1,30 +1,58 @@
 # This is a Dependabot configuration file for automating dependency updates.
 # The configuration is set to version 2 of the Dependabot schema.
-# It defines update settings for three package ecosystems: GitHub Actions, Bundler, and npm.
-# Each ecosystem has its own update configuration, including:
-# - The directory to scan for dependencies (root directory in this case).
-# - The schedule for checking updates (daily).
-# - Allowing both direct and indirect updates for all packages.
-# - Grouping updates by ecosystem with specific patterns for version updates.
-
+# yaml-language-server: $schema=https://www.schemastore.org/dependabot-2.0.json
 version: 2
+
+multi-ecosystem-groups:
+  dependabot-all:
+    schedule:
+      interval: "monthly"
+      time: "05:30"
+      timezone: "America/Detroit"
+    assignees:
+      - "Nick2bad4u"
+    target-branch: "main"
+    commit-message:
+      prefix: "[dependabot][all]"
+      prefix-development: "[dependabot][dev][all]"
+      include: "scope"
+    labels:
+      - "dependabot"
+      - "dependencies"
+
 updates:
   - package-ecosystem: github-actions
+    cooldown:
+      default-days: 3
+      include: ["*"]
     directory: /
-    schedule:
-      interval: monthly
     allow:
       # Allow both direct and indirect updates for all packages
       - dependency-type: "all"
     labels:
       - "github-actions"
-    groups:
-      github-actions:
-        applies-to: version-updates
-        patterns:
-          - "*"
+    multi-ecosystem-group: dependabot-all
+    rebase-strategy: auto
+    patterns:
+      - "*"
 
   - package-ecosystem: npm
+    cooldown:
+      default-days: 3
+      include: ["*"]
     directory: /docs/docusaurus
-    schedule:
-      interval: daily
+    rebase-strategy: auto
+    versioning-strategy: increase
+    allow:
+      # Allow both direct and indirect updates for all packages
+      - dependency-type: "all"
+    ignore:
+      # Keep the docs workspace green too.
+      - dependency-name: "form-data"
+      - dependency-name: "qs"
+      - dependency-name: "tough-cookie"
+    labels:
+      - "npm"
+    multi-ecosystem-group: dependabot-all
+    patterns:
+      - "*"

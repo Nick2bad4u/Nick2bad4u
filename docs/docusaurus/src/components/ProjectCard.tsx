@@ -54,7 +54,7 @@ export default function ProjectCard({ repository }: ProjectCardProps) {
         repository.homepageUrl !== null &&
         repository.homepageUrl !== repository.repositoryUrl;
 
-    const ownerRepoMatch = repository.repositoryUrl.match(/github\.com\/([^/]+)\/([^/]+)/);
+    const ownerRepoMatch = /github\.com\/([^/]+)\/([^/]+)/.exec(repository.repositoryUrl);
     const owner = ownerRepoMatch?.[1] || "Nick2bad4u";
     const repo = ownerRepoMatch?.[2] || repository.name;
     const ogImageUrl = `https://opengraph.githubassets.com/1/${owner}/${repo}`;

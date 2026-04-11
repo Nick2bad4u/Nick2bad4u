@@ -20,12 +20,12 @@ color_selection_done = False
 
 # Fix to handle rgba colors for Tkinter GUI compatibility
 def rgba_to_rgb(rgba):
-    r, g, b, a = rgba
+    r, g, b, _ = rgba
     return f"rgb({r}, {g}, {b})"  # Tkinter supports RGB, not RGBA
-	
+
 # Function to convert RGBA to Hex format for Tkinter
 def rgba_to_hex(rgba):
-    r, g, b, a = rgba
+    r, g, b, _ = rgba
     return f"#{r:02x}{g:02x}{b:02x}"  # Convert RGB to Hex
 
 
@@ -49,28 +49,28 @@ def update_styles():
     # New CSS variables
     calendar_day_bg = selected_colors.get('calendar_day_bg', '#ebedf0')
     calendar_day_border = selected_colors.get('calendar_day_border', 'rgba(27, 31, 35, 0.06)')
-    calendar_L1_bg = selected_colors.get('calendar_L1_bg', '#9be9a8')
-    calendar_L2_bg = selected_colors.get('calendar_L2_bg', '#40c463')
-    calendar_L3_bg = selected_colors.get('calendar_L3_bg', '#30a14e')
-    calendar_L4_bg = selected_colors.get('calendar_L4_bg', '#216e39')
+    calendar_l1_bg = selected_colors.get('calendar_L1_bg', '#9be9a8')
+    calendar_l2_bg = selected_colors.get('calendar_L2_bg', '#40c463')
+    calendar_l3_bg = selected_colors.get('calendar_L3_bg', '#30a14e')
+    calendar_l4_bg = selected_colors.get('calendar_L4_bg', '#216e39')
 
     # Convert RGBA outline color to RGB for use in Tkinter (just in case, but this may not be necessary here)
-    outline_rgb = rgba_to_rgb([130, 80, 223, 0.5])  # Using approximate RGB value for outline
+    # outline_rgb unused
 
     driver.execute_script(f"document.querySelector('*').style.color = '{foreground_color}';")
     driver.execute_script(f"document.querySelector('*').style.background = '{background_color}';")
     driver.execute_script(f"""
-        document.querySelectorAll('tool-tip[data-type="label"]').forEach(toolTipElement => {{ 
-            if (toolTipElement.shadowRoot) {{ 
-                toolTipElement.shadowRoot.host.style.setProperty('--tooltip-bgColor', '{background_color}'); 
-            }} 
+        document.querySelectorAll('tool-tip[data-type="label"]').forEach(toolTipElement => {{
+            if (toolTipElement.shadowRoot) {{
+                toolTipElement.shadowRoot.host.style.setProperty('--tooltip-bgColor', '{background_color}');
+            }}
         }});
     """)
     driver.execute_script(f"""
-        document.querySelectorAll('tool-tip[data-type="label"]').forEach(toolTipElement => {{ 
-            if (toolTipElement.shadowRoot) {{ 
-                toolTipElement.shadowRoot.host.style.setProperty('--tooltip-fgColor', '{foreground_color}'); 
-            }} 
+        document.querySelectorAll('tool-tip[data-type="label"]').forEach(toolTipElement => {{
+            if (toolTipElement.shadowRoot) {{
+                toolTipElement.shadowRoot.host.style.setProperty('--tooltip-fgColor', '{foreground_color}');
+            }}
         }});
     """)
     driver.execute_script(f"""
@@ -84,12 +84,12 @@ def update_styles():
     driver.execute_script(f"""
         document.documentElement.style.setProperty('--color-calendar-graph-day-bg', '{calendar_day_bg}');
         document.documentElement.style.setProperty('--color-calendar-graph-day-border', '{calendar_day_border}');
-        document.documentElement.style.setProperty('--color-calendar-graph-day-L1-bg', '{calendar_L1_bg}');
-        document.documentElement.style.setProperty('--color-calendar-graph-day-L2-bg', '{calendar_L2_bg}');
-        document.documentElement.style.setProperty('--color-calendar-graph-day-L3-bg', '{calendar_L3_bg}');
-        document.documentElement.style.setProperty('--color-calendar-graph-day-L4-bg', '{calendar_L4_bg}');
+        document.documentElement.style.setProperty('--color-calendar-graph-day-L1-bg', '{calendar_l1_bg}');
+        document.documentElement.style.setProperty('--color-calendar-graph-day-L2-bg', '{calendar_l2_bg}');
+        document.documentElement.style.setProperty('--color-calendar-graph-day-L3-bg', '{calendar_l3_bg}');
+        document.documentElement.style.setProperty('--color-calendar-graph-day-L4-bg', '{calendar_l4_bg}');
     """)
-    
+
 # Initialize Tkinter window for color selection
 root = tk.Tk()
 root.title("Color Customizer")
@@ -178,9 +178,6 @@ def run_selenium():
     # Wait until the color selection is done before taking the screenshot
     while not color_selection_done:
         time.sleep(1)
-
-    # Get the height of the page content (without the extra whitespace)
-    page_height = driver.execute_script("return document.body.scrollHeight")
 
     # Resize the window to fit the content height (this removes extra whitespace)
     driver.set_window_size(800, 400)  # Set the width to 1920 or your preferred value

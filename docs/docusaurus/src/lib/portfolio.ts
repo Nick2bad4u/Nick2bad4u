@@ -386,7 +386,7 @@ export const getProjectCollection = (
     repository: PortfolioRepository
 ): ProjectCollection =>
     projectCollectionMap.get(getProjectCollectionId(repository)) ??
-    projectCollections[projectCollections.length - 1];
+    projectCollections.at(-1)!;
 
 export const getHomepageLabel = (repository: PortfolioRepository): string => {
     if (repository.homepageUrl === null) {
@@ -410,8 +410,7 @@ export const getProjectTotals = (
     ).length;
     const packages = repositories.filter(
         (repository) =>
-            repository.homepageUrl !== null &&
-            repository.homepageUrl.includes("npmjs.com")
+            repository.homepageUrl?.includes("npmjs.com")
     ).length;
     const totalStars = repositories.reduce(
         (sum, repository) => sum + repository.stars,

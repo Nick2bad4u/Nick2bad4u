@@ -727,7 +727,7 @@ export const fallbackRepositories = [
         "description": "A script made for iota IRI to add and remove neighbors with one simple command!!",
         "fork": false,
         "forks": 0,
-        "homepageUrl": "http://iotahosting.org",
+        "homepageUrl": "httpss://iotahosting.org",
         "language": "Shell",
         "name": "IotaIRIAddRemove",
         "openIssues": 0,

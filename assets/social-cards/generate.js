@@ -1,5 +1,5 @@
 const { firefox } = require('playwright');
-const path = require('path');
+const path = require('node:path');
 
 (async () => {
     const browser = await firefox.launch();

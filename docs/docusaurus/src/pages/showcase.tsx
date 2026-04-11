@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import ProjectCard from '../components/ProjectCard';
-import { 
-    usePortfolioRepositories, 
+import {
+    usePortfolioRepositories,
     getProjectCollectionSections,
     isFeaturedRepository
 } from '../lib/portfolio';
@@ -11,11 +11,11 @@ import styles from './showcase.module.css';
 import Link from '@docusaurus/Link';
 
 export default function Showcase() {
-    const { errorMessage, fetchStatus, repositories } = usePortfolioRepositories();
+    const { fetchStatus, repositories } = usePortfolioRepositories();
     const [activeTab, setActiveTab] = useState('all');
 
     const collectionSections = getProjectCollectionSections(repositories, 'featured');
-    
+
     // Fallback if collections are empty (e.g. data loading)
     if (!repositories || repositories.length === 0) {
         return (
@@ -31,7 +31,7 @@ export default function Showcase() {
     }
 
     const featuredRepos = repositories.filter(isFeaturedRepository);
-    
+
     const tabs = [
         { id: 'all', label: 'All Featured' },
         ...collectionSections.map(c => ({ id: c.collection.id, label: c.collection.title }))
@@ -59,7 +59,7 @@ export default function Showcase() {
 
                 <div className={styles.showcaseTabs}>
                     {tabs.map(tab => (
-                        <button 
+                        <button
                             key={tab.id}
                             className={activeTab === tab.id ? styles.activeTab : styles.tab}
                             onClick={() => setActiveTab(tab.id)}

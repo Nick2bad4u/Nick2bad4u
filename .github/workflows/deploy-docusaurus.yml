@@ -2,6 +2,8 @@
 # yaml-language-server: $schema=https://www.schemastore.org/github-workflow.json
 name: Deploy Docusaurus to GitHub Pages
 
+run-name: Deploy Docusaurus to GitHub Pages
+
 on:
     push:
         branches:
@@ -11,11 +13,6 @@ on:
             - "docs/docusaurus/**"
     workflow_dispatch:
 
-permissions:
-    contents: read
-    pages: write
-    id-token: write
-
 concurrency:
     group: pages
     cancel-in-progress: false
@@ -24,6 +21,8 @@ jobs:
     build:
         name: Build docs site
         runs-on: ubuntu-latest
+        permissions:
+            contents: read
         defaults:
             run:
                 working-directory: docs/docusaurus
@@ -66,6 +65,9 @@ jobs:
     deploy:
         name: Deploy site
         runs-on: ubuntu-latest
+        permissions:
+            pages: write
+            id-token: write
         needs: build
         environment:
             name: github-pages
