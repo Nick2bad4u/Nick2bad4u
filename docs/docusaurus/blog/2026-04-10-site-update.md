@@ -1,7 +1,7 @@
 ---
 slug: site-update-and-polish
 title: "Site Update: Polishing the Docusaurus Site"
-authors: [nick]
+authors: [Nick2bad4u]
 tags: [docusaurus, ui, update, styling, documentation]
 ---
 

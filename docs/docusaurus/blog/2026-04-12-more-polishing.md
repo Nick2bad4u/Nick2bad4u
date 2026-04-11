@@ -1,7 +1,7 @@
 ---
 slug: ongoing-evolution
 title: "The Ongoing Evolution of Our Documentation"
-authors: [nick]
+authors: [Nick2bad4u]
 tags: [docusaurus, evolution, docs]
 ---
 
@@ -18,4 +18,3 @@ Documentation is never truly finished. Today we are rolling out even more update
 - **New Rule Documents:** We are continuously expanding our rule documentation, ensuring every edge case and configuration option is covered.
 
 Stay tuned for more updates as we continue to polish the experience!
-

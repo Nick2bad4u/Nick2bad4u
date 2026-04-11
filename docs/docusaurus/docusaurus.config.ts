@@ -432,9 +432,9 @@ const config: Config = {
                     to: "/projects",
                 },
                 {
-                    label: "\uea74 About",
+                    label: "\uea74 Blog",
                     position: "left",
-                    to: "/docs/intro",
+                    to: "/blog",
                 },
                 {
                     href: `https://github.com/${organizationName}?tab=repositories&sort=updated`,
@@ -463,8 +463,8 @@ const config: Config = {
                             to: "/projects",
                         },
                         {
-                            label: "About this site",
-                            to: "/docs/intro",
+                            label: "Blog",
+                            to: "/blog",
                         },
                     ],
                 },
