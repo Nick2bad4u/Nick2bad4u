@@ -9,6 +9,9 @@ on:
     branches: [repo-stats]
   pull_request:
     branches: [repo-stats]
+permissions:
+  contents: read
+
 jobs:
   github-metrics:
     concurrency:
