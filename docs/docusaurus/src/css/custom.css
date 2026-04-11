@@ -1,5 +1,4 @@
 /** eslint-disable css/use-baseline */
-/* stylelint-disable plugin/no-low-performance-animation-properties, order/properties-order, no-descending-specificity, a11y/media-prefers-reduced-motion -- Docusaurus CSS breaks these features */
 
 /**
  * Global CSS overrides for Docusaurus documentation site.
@@ -48,13 +47,13 @@
 }
 
 :root {
-    --ifm-color-primary: #4f46e5;
-    --ifm-color-primary-dark: #4338ca;
-    --ifm-color-primary-darker: #3730a3;
-    --ifm-color-primary-darkest: #312e81;
-    --ifm-color-primary-light: #6366f1;
-    --ifm-color-primary-lighter: #818cf8;
-    --ifm-color-primary-lightest: #a5b4fc;
+    --ifm-color-primary: #9333ea;
+    --ifm-color-primary-dark: #7e22ce;
+    --ifm-color-primary-darker: #6b21a8;
+    --ifm-color-primary-darkest: #581c87;
+    --ifm-color-primary-light: #a855f7;
+    --ifm-color-primary-lighter: #c084fc;
+    --ifm-color-primary-lightest: #d8b4fe;
     --ifm-code-font-size: 95%;
     --ifm-font-family-base:
         "Inter var", "Inter", "Segoe UI", "NerdFontSymbols Nerd Font Symbols",
@@ -84,13 +83,13 @@
 }
 
 [data-theme="dark"] {
-    --ifm-color-primary: #818cf8;
-    --ifm-color-primary-dark: #6366f1;
-    --ifm-color-primary-darker: #4f46e5;
-    --ifm-color-primary-darkest: #4338ca;
-    --ifm-color-primary-light: #a5b4fc;
-    --ifm-color-primary-lighter: #c7d2fe;
-    --ifm-color-primary-lightest: #e0e7ff;
+    --ifm-color-primary: #c084fc;
+    --ifm-color-primary-dark: #a855f7;
+    --ifm-color-primary-darker: #9333ea;
+    --ifm-color-primary-darkest: #7e22ce;
+    --ifm-color-primary-light: #d8b4fe;
+    --ifm-color-primary-lighter: #e9d5ff;
+    --ifm-color-primary-lightest: #f3e8ff;
     --sb-accent-overview: #4ade80;
     --sb-accent-started: #38bdf8;
     --sb-accent-developer: #c084fc;
@@ -131,6 +130,14 @@
         background-color 140ms ease-in-out,
         border-color 140ms ease-in-out,
         color 140ms ease-in-out;
+}
+
+.card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--ifm-global-shadow-lw);
 }
 
 .sb-inline-rule-number,

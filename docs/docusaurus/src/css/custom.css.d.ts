@@ -1,4 +1,5 @@
 declare const styles: {
+  readonly "card": string;
   readonly "dropdown__menu": string;
   readonly "jsdoc-tag": string;
   readonly "markdown": string;

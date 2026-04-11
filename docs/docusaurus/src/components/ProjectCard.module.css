@@ -1,20 +1,56 @@
 .card {
     display: flex;
     flex-direction: column;
-    padding: 1.1rem;
+    padding: 0;
     border: 1px solid var(--ifm-color-emphasis-200);
     border-radius: 1rem;
+    overflow: hidden;
     background:
         linear-gradient(
             165deg,
-            rgb(79 70 229 / 8%),
-            rgb(14 165 233 / 8%) 52%,
+            rgb(147 51 234 / 8%),
+            rgb(192 132 252 / 8%) 52%,
             transparent
         ),
         var(--ifm-card-background-color);
     box-shadow: var(--ifm-global-shadow-lw);
-    gap: 0.85rem;
     min-block-size: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--ifm-global-shadow-md);
+}
+
+.cardImageWrapper {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    overflow: hidden;
+    background: var(--ifm-color-emphasis-100);
+    border-bottom: 1px solid var(--ifm-color-emphasis-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .cardImage {
+    transform: scale(1.05);
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+    padding: 1.25rem 1.4rem;
+    flex: 1;
 }
 
 .featuredCard {
@@ -176,7 +212,7 @@
 }
 
 .primaryAction {
-    background: linear-gradient(135deg, #4f46e5, #0ea5e9);
+    background: linear-gradient(135deg, #9333ea, #c084fc);
     color: #ffffff;
 }
 

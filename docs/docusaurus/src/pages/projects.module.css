@@ -1,5 +1,5 @@
 .page {
-    padding: 2rem 0 3.5rem;
+    padding: 2.5rem 0 4.5rem;
 }
 
 .heroSection {
@@ -251,8 +251,8 @@
 
 .projectGrid {
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
 .emptyState {

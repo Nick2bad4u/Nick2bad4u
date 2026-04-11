@@ -3,9 +3,13 @@ title: Getting Started
 description: Enable eslint-plugin-typefest quickly in Flat Config.
 ---
 
-# Getting Started
+# 🚀 Getting Started
 
-Install the plugin:
+Welcome to `eslint-plugin-typefest`! We help you enforce type safety and modern JS/TS practices with ease.
+
+## Installation
+
+Install the plugin via npm (or yarn/pnpm):
 
 ```bash
 npm install --save-dev eslint-plugin-typefest typescript

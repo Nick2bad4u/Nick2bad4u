@@ -67,6 +67,9 @@ export const featuredRepositoryNames = new Set<string>([
     "UserStyles",
     "Prettier-Plugin-Powershell",
     "eslint-plugin-typefest",
+    "eslint-plugin-docusaurus-2",
+    "eslint-plugin-file-progress-2",
+    "eslint-plugin-typedoc",
     "internet-archive-upload",
     "ZwiftScripts",
 ]);
@@ -437,7 +440,7 @@ export const getProjectTotals = (
 
             return left[0].localeCompare(right[0]);
         })
-        .slice(0, 6)
+        .slice(0, 8)
         .map(([language, count]) => ({ count, language }));
 
     return {

@@ -54,11 +54,25 @@ export default function ProjectCard({ repository }: ProjectCardProps) {
         repository.homepageUrl !== null &&
         repository.homepageUrl !== repository.repositoryUrl;
 
+    const ownerRepoMatch = repository.repositoryUrl.match(/github\.com\/([^/]+)\/([^/]+)/);
+    const owner = ownerRepoMatch?.[1] || "Nick2bad4u";
+    const repo = ownerRepoMatch?.[2] || repository.name;
+    const ogImageUrl = `https://opengraph.githubassets.com/1/${owner}/${repo}`;
+
     return (
         <article
             className={`${styles.card} ${isFeatured ? styles.featuredCard : ""}`.trim()}
         >
-            <div className={styles.badgeRow}>
+            <div className={styles.cardImageWrapper}>
+                <img
+                    src={ogImageUrl}
+                    alt={`Preview of ${repository.name}`}
+                    className={styles.cardImage}
+                    loading="lazy"
+                />
+            </div>
+            <div className={styles.cardContent}>
+                <div className={styles.badgeRow}>
                 {isFeatured ? (
                     <span className={`${styles.badge} ${styles.badgeFeatured}`}>
                         Featured
@@ -114,21 +128,22 @@ export default function ProjectCard({ repository }: ProjectCardProps) {
                 </ul>
             ) : null}
 
-            <div className={styles.actions}>
-                {hasHomepage ? (
+                <div className={styles.actions}>
+                    {hasHomepage ? (
+                        <Link
+                            className={styles.primaryAction}
+                            href={repository.homepageUrl ?? repository.repositoryUrl}
+                        >
+                            {homepageLabel}
+                        </Link>
+                    ) : null}
                     <Link
-                        className={styles.primaryAction}
-                        href={repository.homepageUrl ?? repository.repositoryUrl}
+                        className={hasHomepage ? styles.secondaryAction : styles.primaryAction}
+                        href={repository.repositoryUrl}
                     >
-                        {homepageLabel}
+                        GitHub Repository
                     </Link>
-                ) : null}
-                <Link
-                    className={hasHomepage ? styles.secondaryAction : styles.primaryAction}
-                    href={repository.repositoryUrl}
-                >
-                    GitHub Repository
-                </Link>
+                </div>
             </div>
         </article>
     );

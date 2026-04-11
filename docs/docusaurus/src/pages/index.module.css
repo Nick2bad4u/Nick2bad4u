@@ -7,15 +7,15 @@
     background:
         radial-gradient(
             circle at 88% 16%,
-            rgb(244 114 182 / 26%),
+            rgb(232 121 249 / 28%),
             transparent 38%
         ),
         radial-gradient(
             circle at 12% 80%,
-            rgb(34 211 238 / 24%),
+            rgb(192 132 252 / 26%),
             transparent 42%
         ),
-        linear-gradient(140deg, #1e1b4b 0%, #312e81 38%, #2563eb 76%, #0ea5e9 100%);
+        linear-gradient(140deg, #2e1065 0%, #4c1d95 38%, #7e22ce 76%, #d946ef 100%);
     color: #ffffff;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .heroKicker {
-    display: inline-flex;
+    display: contents;
     padding: 0.28rem 0.7rem;
     border: 1px solid rgb(255 255 255 / 26%);
     border-radius: 999px;
@@ -98,8 +98,8 @@
 
 .profilePanel {
     display: grid;
-    align-content: start;
-    justify-items: start;
+    align-content: center;
+    justify-items: center;
     padding: 1.25rem;
     border: 1px solid rgb(255 255 255 / 18%);
     border-radius: 1.15rem;
@@ -169,28 +169,28 @@
 }
 
 .mainContent {
-    padding: 1.8rem 0 3.5rem;
+    padding: 2.5rem 0 4.5rem;
 }
 
 .collectionsSection {
-    margin-top: 0.25rem;
+    margin-top: 1.85rem;
 }
 
 .collectionGrid {
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .collectionCard {
-    padding: 1.1rem;
+    padding: 1.4rem;
     border: 1px solid var(--ifm-color-emphasis-200);
     border-radius: 1rem;
     background:
         linear-gradient(
             165deg,
-            rgb(79 70 229 / 8%),
-            rgb(14 165 233 / 7%) 55%,
+            rgb(147 51 234 / 8%),
+            rgb(216 180 254 / 7%) 55%,
             transparent
         ),
         var(--ifm-card-background-color);
@@ -326,8 +326,8 @@
 
 .projectGrid {
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
 .ctaSection {

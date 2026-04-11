@@ -100,28 +100,6 @@
 </div>
 
 <div align="center">
-  <a href="https://github.com/anuraghazra/github-readme-stats">
-    <img
-      height="auto"
-      src="https://github-readme-stats.vercel.app/api?username=nick2bad4u&show=reviews,discussions_started,discussions_answered,prs_merged,prs_merged_percentage&theme=dracula&show_icons=true&rank_icon=percentile&include_all_commits=true"
-      alt="GitHub Stats"
-    />
-  </a>
-  <a href="https://github.com/anuraghazra/convoychat">
-    <img
-      src="https://github-readme-stats.vercel.app/api/top-langs/?username=nick2bad4u&layout=donut-vertical&show_icons=true&theme=dracula&hide=tcl"
-      alt="Top Languages Donut"
-      height="auto"
-    />
-    <br />
-  </a>
-  <a href="https://github.com/anuraghazra/convoychat">
-    <img
-      height="auto"
-      src="https://github-readme-stats.vercel.app/api/top-langs?username=nick2bad4u&theme=dracula&layout=compact&langs_count=10"
-      alt="Top Languages"
-    />
-  </a>
   <a href="https://wakatime.com">
     <img
       height="600px"
@@ -129,6 +107,7 @@
       alt="WakaTime"
     />
   </a>
+</div>
 
 <div align="center">
     <img

@@ -12,6 +12,9 @@ declare const styles: {
   readonly "badgeRow": string;
   readonly "badgeTooling": string;
   readonly "card": string;
+  readonly "cardContent": string;
+  readonly "cardImage": string;
+  readonly "cardImageWrapper": string;
   readonly "description": string;
   readonly "featuredCard": string;
   readonly "language": string;

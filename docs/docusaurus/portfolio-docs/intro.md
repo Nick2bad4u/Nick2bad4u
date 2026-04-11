@@ -3,7 +3,7 @@ sidebar_position: 1
 slug: /intro
 ---
 
-# Nick2bad4u Projects
+# Nick2bad4u's Projects
 
 This site turns my copied Docusaurus template into a portfolio and project explorer for everything public on my GitHub profile.
 

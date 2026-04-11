@@ -36,25 +36,25 @@ export default function Home() {
     return (
         <Layout
             title="GitHub project portfolio"
-            description="A Docusaurus-powered portfolio for Nick2bad4u GitHub projects, demos, tools, and experiments."
+            description="A Docusaurus-powered portfolio for Nick2bad4u's GitHub profile, showcasing public repositories with a focus on apps, tools, ESLint plugins, and more."
         >
-            <header className={styles.heroBanner}>
-                <div className={`container ${styles.heroLayout}`}>
+            <header className={`${styles.heroBanner} hero-gradient`}>
+                <div className={`container ${styles.heroLayout} glass-panel`}>
                     <div className={styles.heroCopy}>
-                        <p className={styles.heroKicker}>GitHub portfolio</p>
+                        <p className={styles.heroKicker}> GitHub portfolio</p>
                         <Heading as="h1" className={styles.heroTitle}>
-                            Shipping tooling, apps, automation, and experiments.
+                            A showcase of my public repositories 
                         </Heading>
                         <p className={styles.heroSubtitle}>
-                            This site showcases the public repositories from{" "}
+                            This site showcases public repositories by{" "}
                             <Link
                                 className={styles.heroInlineLink}
                                 href={githubProfile.profileUrl}
                             >
                                 @{githubProfile.username}
                             </Link>
-                            , starting with featured projects and continuing into
-                            a searchable explorer for the full catalog.
+                            , curated to highlight the most interesting work across
+                            different focus areas.
                         </p>
 
                         <div className={styles.heroActions}>
@@ -62,13 +62,7 @@ export default function Home() {
                                 className="button button--primary button--lg"
                                 to="/projects"
                             >
-                                Browse all projects
-                            </Link>
-                            <Link
-                                className="button button--secondary button--lg"
-                                to="/docs/intro"
-                            >
-                                Read portfolio docs
+                                 Browse all projects
                             </Link>
                         </div>
 
@@ -82,7 +76,7 @@ export default function Home() {
                                 {fetchStatus === "loading"
                                     ? "Refreshing from the GitHub API..."
                                     : errorMessage ??
-                                      "The site refreshes from the public GitHub API when possible."}
+                                      "The site refreshes from the public GitHub API when available."}
                             </span>
                         </div>
                     </div>
@@ -142,18 +136,94 @@ export default function Home() {
             </header>
 
             <main className={styles.mainContent}>
+                <section className={`container ${styles.featuredSection}`}>
+                    <div className={styles.sectionHeader}>
+                        <div>
+                            <p className={styles.sectionKicker}> Featured work</p>
+                            <Heading as="h2" className={styles.sectionTitle}>
+                                A curated selection of highlighted projects
+                            </Heading>
+                            <p className={styles.sectionDescription}>
+                                A selection of my favorite projects across different
+                                categories, showcasing the variety of work and the depth of
+                                focus areas like ESLint plugins, PowerShell tools, apps, etc...
+                            </p>
+                        </div>
+                        <Link className={styles.sectionLink} to="/projects">
+                            View the full explorer →
+                        </Link>
+                    </div>
+
+                    <div className={styles.projectGrid}>
+                        {featuredRepositories.map((repository) => (
+                            <ProjectCard
+                                key={repository.name}
+                                repository={repository}
+                            />
+                        ))}
+                    </div>
+                </section>
+
+                {eslintSection !== undefined ? (
+                    <section className={`container ${styles.eslintSection}`}>
+                        <div className={styles.sectionHeader}>
+                            <div>
+                                <p className={styles.sectionKicker}>
+                                    󰮍 ESLint plugin family
+                                </p>
+                                <Heading as="h2" className={styles.sectionTitle}>
+                                    A body of work across many plugin packages
+                                </Heading>
+                                <p className={styles.sectionDescription}>
+                                    This focus area within the portfolio is
+                                    a collection of ESLint plugins. These are
+                                    grouped together in the explorer and spotlighted
+                                    here to show the breadth of work across the
+                                    ecosystem, from popular style and utility
+                                    plugins to smaller experiments.
+                                </p>
+                            </div>
+                            <div className={styles.collectionSpotlightStats}>
+                                <span className={styles.collectionSpotlightPill}>
+                                    {eslintSection.repositories.length} ESLint plugins
+                                </span>
+                                <Link
+                                    className={styles.sectionLink}
+                                    to="/projects?collection=eslint-plugins"
+                                >
+                                    Open full plugin group →
+                                </Link>
+                            </div>
+                        </div>
+
+                        <div className={styles.projectGrid}>
+                            {eslintSection.repositories
+                                .slice(0, 6)
+                                .map((repository) => (
+                                    <ProjectCard
+                                        key={repository.name}
+                                        repository={repository}
+                                    />
+                                ))}
+                        </div>
+                    </section>
+                ) : null}
+
                 <section className={`container ${styles.collectionsSection}`}>
                     <div className={styles.sectionHeader}>
                         <div>
-                            <p className={styles.sectionKicker}>Grouped showcase</p>
+                            <p className={styles.sectionKicker}>󰠱 Grouped showcase</p>
                             <Heading as="h2" className={styles.sectionTitle}>
                                 Browse the portfolio by project family
                             </Heading>
                             <p className={styles.sectionDescription}>
-                                Instead of a flat repo dump, the site groups your
-                                work into clearer collections so the ESLint plugins,
-                                apps, PowerShell work, and hobby projects each read
-                                like part of a bigger body of work.
+                                Many projects are part of a larger family of
+                                related work, like a collection of tools for a
+                                specific ecosystem, a set of demos for a particular
+                                technology, or a group of experiments around a common
+                                theme. These collections are highlighted in the
+                                explorer and spotlighted here to show the different
+                                focus areas across the portfolio.
                             </p>
                         </div>
                         <Link className={styles.sectionLink} to="/projects">
@@ -207,77 +277,6 @@ export default function Home() {
                     </div>
                 </section>
 
-                {eslintSection !== undefined ? (
-                    <section className={`container ${styles.eslintSection}`}>
-                        <div className={styles.sectionHeader}>
-                            <div>
-                                <p className={styles.sectionKicker}>
-                                    ESLint plugin family
-                                </p>
-                                <Heading as="h2" className={styles.sectionTitle}>
-                                    Your ESLint plugins now live together as one showcase
-                                </Heading>
-                                <p className={styles.sectionDescription}>
-                                    This collection groups the plugin work into a
-                                    single visible lane, making it easier to see
-                                    the breadth of your lint tooling instead of
-                                    scattering each package across the whole site.
-                                </p>
-                            </div>
-                            <div className={styles.collectionSpotlightStats}>
-                                <span className={styles.collectionSpotlightPill}>
-                                    {eslintSection.repositories.length} plugins
-                                </span>
-                                <Link
-                                    className={styles.sectionLink}
-                                    to="/projects?collection=eslint-plugins"
-                                >
-                                    Open full plugin group →
-                                </Link>
-                            </div>
-                        </div>
-
-                        <div className={styles.projectGrid}>
-                            {eslintSection.repositories
-                                .slice(0, 4)
-                                .map((repository) => (
-                                    <ProjectCard
-                                        key={repository.name}
-                                        repository={repository}
-                                    />
-                                ))}
-                        </div>
-                    </section>
-                ) : null}
-
-                <section className={`container ${styles.featuredSection}`}>
-                    <div className={styles.sectionHeader}>
-                        <div>
-                            <p className={styles.sectionKicker}>Featured work</p>
-                            <Heading as="h2" className={styles.sectionTitle}>
-                                Start with the projects that best represent the wider portfolio
-                            </Heading>
-                            <p className={styles.sectionDescription}>
-                                These repositories span developer tooling,
-                                utilities, dashboards, and experiments with the
-                                clearest public-facing value.
-                            </p>
-                        </div>
-                        <Link className={styles.sectionLink} to="/projects">
-                            View the full explorer →
-                        </Link>
-                    </div>
-
-                    <div className={styles.projectGrid}>
-                        {featuredRepositories.map((repository) => (
-                            <ProjectCard
-                                key={repository.name}
-                                repository={repository}
-                            />
-                        ))}
-                    </div>
-                </section>
-
                 <section className={`container ${styles.ctaSection}`}>
                     <div className={styles.ctaCard}>
                         <div>
@@ -294,9 +293,6 @@ export default function Home() {
                         <div className={styles.ctaActions}>
                             <Link className="button button--primary" to="/projects">
                                 Open projects explorer
-                            </Link>
-                            <Link className="button button--secondary" to="/docs/focus-areas">
-                                Read focus areas
                             </Link>
                         </div>
                     </div>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Card Generator</title>
+    <style>
+        :root {
+            --font-main: 'Segoe UI', system-ui, sans-serif;
+            --font-mono: 'Consolas', 'Courier New', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Hide scrollbars to prevent them from showing up in screenshots */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            background-color: #111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+            padding: 50px;
+            /* Prevent horizontal overflow that causes toolbars/scrollbars */
+            overflow-x: hidden;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        .card {
+            /* Forced to exact OpenGraph dimensions */
+            width: 1200px;
+            height: 630px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            font-family: var(--font-main);
+            /* Add drop shadow just for viewing in the browser */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            flex-shrink: 0;
+        }
+
+        /* STYLE 1: Minimalist Dark */
+        .theme-minimal {
+            background-color: #1a1b26;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-top: 15px solid #9333ea;
+        }
+        .theme-minimal .title {
+            font-family: var(--font-mono);
+            font-size: 110px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff, #a9a9b3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .theme-minimal .desc {
+            font-size: 45px;
+            color: #a9a9b3;
+            letter-spacing: 2px;
+        }
+
+        /* STYLE 2: Split Avatar */
+        .theme-split {
+            background-color: #0d1117;
+            color: #e6edf3;
+            flex-direction: row;
+            align-items: center;
+            padding: 80px;
+            gap: 60px;
+            border: 1px solid #30363d;
+            background-image:
+                radial-gradient(circle at top right, rgba(88, 166, 255, 0.1), transparent 50%),
+                radial-gradient(circle at bottom left, rgba(88, 166, 255, 0.05), transparent 50%);
+        }
+        .theme-split .avatar-container {
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 8px solid #161b22;
+            box-shadow: 0 0 0 2px #30363d, 0 20px 40px rgba(0,0,0,0.5);
+            flex-shrink: 0;
+        }
+        .theme-split .avatar { width: 100%; height: 100%; object-fit: cover; }
+        .theme-split .content { display: flex; flex-direction: column; gap: 20px; }
+        .theme-split .title { font-size: 95px; font-weight: 800; line-height: 1.1; }
+        .theme-split .desc { font-size: 40px; color: #8b949e; line-height: 1.4; }
+        .theme-split .badge {
+            display: inline-block; padding: 10px 25px; border-radius: 30px;
+            background: rgba(88, 166, 255, 0.1); color: #58a6ff;
+            font-size: 28px; font-weight: 600; width: fit-content; margin-bottom: 10px;
+        }
+
+        /* STYLE 3: Modern Glow */
+        .theme-glow {
+            background: linear-gradient(to bottom right, #2a1b42, #0a0a0f);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .theme-glow::before {
+            content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(147, 51, 234, 0.2) 0%, transparent 70%);
+        }
+        .theme-glow .inner {
+            background: rgba(20, 20, 25, 0.6); backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1); padding: 80px 100px; border-radius: 40px;
+            display: flex; flex-direction: column; align-items: center; gap: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); z-index: 1;
+        }
+        .theme-glow .avatar { width: 180px; height: 180px; border-radius: 50%; border: 4px solid rgba(255,255,255,0.2); }
+        .theme-glow .title {
+            font-size: 85px; font-weight: 900;
+            background: linear-gradient(to right, #fff, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .theme-glow .desc { font-size: 38px; color: #d1d5db; }
+
+        /* STYLE 4: Hacker Terminal */
+        .theme-terminal {
+            background: #0c0c0c;
+            color: #0f0;
+            font-family: var(--font-mono);
+            padding: 80px;
+            border: 20px solid #222;
+            justify-content: center;
+        }
+        .theme-terminal .header {
+            position: absolute; top: 0; left: 0; width: 100%; height: 50px; background: #222; display: flex; align-items: center; padding: 0 25px;
+        }
+        .theme-terminal .dot { width: 18px; height: 18px; border-radius: 50%; margin-right: 12px; }
+        .theme-terminal .dot.red { background: #ff5f56; }
+        .theme-terminal .dot.yellow { background: #ffbd2e; }
+        .theme-terminal .dot.green { background: #27c93f; }
+        .theme-terminal .prompt { display: flex; flex-direction: column; gap: 20px; }
+        .theme-terminal .prompt-line1::before { content: 'user@machine:~/projects$ ./run.sh'; color: #888; font-size: 35px; }
+        .theme-terminal .title { font-size: 90px; font-weight: bold; margin-top: 20px; text-shadow: 0 0 10px rgba(0,255,0,0.5); }
+        .theme-terminal .desc { font-size: 45px; color: #0a0; }
+        .theme-terminal .cursor { display: inline-block; width: 25px; height: 50px; background: #0f0; vertical-align: middle; margin-left: 15px; animation: blink 1s step-end infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* STYLE 5: Cyberpunk Pink/Cyan */
+        .theme-cyberpunk {
+            background: #050510;
+            color: #fff;
+            border-right: 25px solid #f0f;
+            border-bottom: 25px solid #0ff;
+            padding: 80px;
+            justify-content: flex-end;
+            background-image: linear-gradient(0deg, transparent 24%, rgba(0, 255, 255, 0.05) 25%, rgba(0, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 255, 0.05) 75%, rgba(0, 255, 255, 0.05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(0, 255, 255, 0.05) 25%, rgba(0, 255, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 255, 0.05) 75%, rgba(0, 255, 255, 0.05) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+        }
+        .theme-cyberpunk::after {
+            content: 'NICK2BAD4U'; position: absolute; top: -10px; right: -20px; font-size: 180px; font-weight: 900;
+            color: transparent; -webkit-text-stroke: 3px rgba(255, 0, 255, 0.2); z-index: 0;
+        }
+        .theme-cyberpunk .content { z-index: 1; display: flex; flex-direction: column; gap: 15px; }
+        .theme-cyberpunk .title { font-size: 110px; font-weight: 900; color: #f0f; text-shadow: 6px 6px 0px #0ff; line-height: 1; text-transform: uppercase; letter-spacing: -2px;}
+        .theme-cyberpunk .desc { font-size: 45px; color: #ff0; background: #111; display: inline-block; padding: 15px 30px; border: 2px solid #ff0; width: fit-content; text-transform: uppercase; font-family: var(--font-mono);}
+
+        /* STYLE 6: Clean Corporate (Apple/Google style) */
+        .theme-clean {
+            background: #f8f9fa;
+            color: #202124;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px;
+        }
+        .theme-clean .avatar { width: 220px; height: 220px; border-radius: 50%; box-shadow: 0 15px 35px rgba(0,0,0,0.1); margin-bottom: 40px; }
+        .theme-clean .title { font-size: 95px; font-weight: 700; color: #1a73e8; margin-bottom: 20px; letter-spacing: -1px; }
+        .theme-clean .desc { font-size: 45px; color: #5f6368; font-weight: 400; }
+
+        /* STYLE 7: Neumorphism Card */
+        .theme-neumorph {
+            background: #e0e5ec;
+            justify-content: center;
+            align-items: center;
+        }
+        .theme-neumorph .inner-card {
+            width: 1000px; height: 450px; background: #e0e5ec; border-radius: 30px;
+            box-shadow: 20px 20px 60px #bec3c9, -20px -20px 60px #ffffff;
+            display: flex; align-items: center; padding: 60px; gap: 60px;
+        }
+        .theme-neumorph .avatar-wrap {
+            width: 260px; height: 260px; border-radius: 50%; padding: 10px;
+            box-shadow: inset 10px 10px 20px #bec3c9, inset -10px -10px 20px #ffffff;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .theme-neumorph .avatar { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+        .theme-neumorph .title { font-size: 85px; font-weight: 800; color: #2d3748; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(255,255,255,0.5); }
+        .theme-neumorph .desc { font-size: 40px; color: #718096; }
+
+        /* STYLE 8: Gradient Mesh Glass */
+        .theme-mesh {
+            background-color: #4158D0;
+            background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        .theme-mesh .glass {
+            background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 40px;
+            padding: 80px; width: 900px; text-align: center; box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+        .theme-mesh .title { font-size: 105px; font-weight: 800; margin-bottom: 20px; text-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .theme-mesh .desc { font-size: 45px; font-weight: 500; text-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body>
+
+    <!-- Style 1: Minimal Tooling -->
+    <div class="card theme-minimal" id="card1">
+        <div class="title">Nick2bad4u</div>
+        <div class="desc">GitHub Portfolio & Projects</div>
+    </div>
+
+    <!-- Style 2: Split Developer -->
+    <div class="card theme-split" id="card2">
+        <div class="avatar-container">
+            <img class="avatar" src="../../docs/docusaurus/static/img/logo.png" alt="Avatar" onerror="this.src='https://avatars.githubusercontent.com/u/20943337?v=4'">
+        </div>
+        <div class="content">
+            <div class="badge">Open Source</div>
+            <div class="title">Nick2bad4u</div>
+            <div class="desc">Developer Tooling, Utilities, Dashboards, &amp; Experiments</div>
+        </div>
+    </div>
+
+    <!-- Style 3: Modern Glow -->
+    <div class="card theme-glow" id="card3">
+        <div class="inner">
+            <img class="avatar" src="../../docs/docusaurus/static/img/logo.png" alt="Avatar" onerror="this.src='https://avatars.githubusercontent.com/u/20943337?v=4'">
+            <div class="title">Nick2bad4u</div>
+            <div class="desc">github.com/Nick2bad4u</div>
+        </div>
+    </div>
+
+    <!-- Style 4: Hacker Terminal -->
+    <div class="card theme-terminal" id="card4">
+        <div class="header">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+        </div>
+        <div class="prompt">
+            <div class="prompt-line1"></div>
+            <div class="title">&gt; Nick2bad4u<span class="cursor"></span></div>
+            <div class="desc">Loading repositories... [OK]</div>
+        </div>
+    </div>
+
+    <!-- Style 5: Cyberpunk Pink/Cyan -->
+    <div class="card theme-cyberpunk" id="card5">
+        <div class="content">
+            <div class="title">Nick2bad4u</div>
+            <div class="desc">// Open Source //</div>
+        </div>
+    </div>
+
+    <!-- Style 6: Clean Corporate (Apple/Google style) -->
+    <div class="card theme-clean" id="card6">
+        <img class="avatar" src="../../docs/docusaurus/static/img/logo.png" alt="Avatar" onerror="this.src='https://avatars.githubusercontent.com/u/20943337?v=4'">
+        <div class="title">Nick2bad4u</div>
+        <div class="desc">Developer Tooling &amp; Infrastructure</div>
+    </div>
+
+    <!-- Style 7: Neumorphism Card -->
+    <div class="card theme-neumorph" id="card7">
+        <div class="inner-card">
+            <div class="avatar-wrap">
+                <img class="avatar" src="../../docs/docusaurus/static/img/logo.png" alt="Avatar" onerror="this.src='https://avatars.githubusercontent.com/u/20943337?v=4'">
+            </div>
+            <div class="content">
+                <div class="title">Nick2bad4u</div>
+                <div class="desc">Software Engineering &amp; Open Source Projects</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Style 8: Gradient Mesh Glass -->
+    <div class="card theme-mesh" id="card8">
+        <div class="glass">
+            <div class="title">Nick2bad4u</div>
+            <div class="desc">Discover my GitHub landscape</div>
+        </div>
+    </div>
+
+</body>
+</html>
