@@ -10,68 +10,26 @@
     />
   </a>
   <img
-    src="https://img.shields.io/github/followers/nick2bad4u?style=flat-square"
+    src="https://img.shields.io/github/followers/nick2bad4u?style=flat-square&color=orange"
     alt="Followers"
   />
   <img
-    src="https://img.shields.io/github/stars/nick2bad4u?style=flat-square"
+    src="https://img.shields.io/github/stars/nick2bad4u?style=flat-square&color=ff69b4"
     alt="Stars"
   />
-  <img
-    src="https://hit.yhype.me/github/profile?user_id=20943337"
-    alt="Hits2"
-  />
-  <a href="https://github.com/Nick2bad4u/UserStyles/actions/workflows/Snake.yml">
-    <img
-      src="https://github.com/Nick2bad4u/UserStyles/actions/workflows/Snake.yml/badge.svg"
-      alt="Snake Contributions"
-    />
-  </a>
-  <a href="https://github.com/nick2bad4u/nick2bad4u/pulls" title="View or submit pull requests">
-    <img alt="Badge: PRs Welcome (green, flat-square style)" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square&logo=github" title="PRs Welcome">
-  </a>
-  <a href="https://github.com/nick2bad4u/nick2bad4u/blob/master/CONTRIBUTING.md" title="Read the contributing guidelines">
-    <img alt="Badge: Contributions Accepted (dark green, flat-square style)" src="https://img.shields.io/badge/Contributions-Accepted-darkgreen?style=flat-square&logo=contributorcovenant" title="Contributions Accepted">
-  </a>
-  <a href="https://github.com/nick2bad4u/nick2bad4u/graphs/contributors" title="View project contributors">
-    <img alt="Badge: Contributors (dynamic count, flat-square style)" src="https://img.shields.io/github/contributors/nick2bad4u/nick2bad4u?style=flat-square&logo=contributorcovenant" title="Contributors">
-  </a>
-  <a href="https://github.com/nick2bad4u/nick2bad4u/stargazers" title="See who starred this repo">
-    <img alt="Badge: GitHub Stars (dynamic count, flat-square style)" src="https://img.shields.io/github/stars/nick2bad4u/nick2bad4u?style=flat-square&logo=polestar" title="GitHub Stars">
-  </a>
-  <a href="https://github.com/nick2bad4u/nick2bad4u/issues" title="View open issues">
-    <img alt="Badge: GitHub Issues (dynamic count, flat-square style)" src="https://img.shields.io/github/issues/nick2bad4u/nick2bad4u?style=flat-square&logo=wwise" title="GitHub Issues">
-  </a>
-  <a href="https://github.com/nick2bad4u/nick2bad4u/commits" title="View recent commits">
-    <img alt="Badge: Last Commit (dynamic date, flat-square style)" src="https://img.shields.io/github/last-commit/nick2bad4u/nick2bad4u?style=flat-square&logo=commonworkflowlanguage" title="Last Commit">
-  </a>
   <a href="https://github.com/nick2bad4u/nick2bad4u" title="main repository">
-    <img alt="Badge: Repository Views (dynamic count, flat style)" src="https://views.igorkowalczyk.dev/api/badge/nick2bad4u-Modern?style=flat" title="Repository Views">
-  </a>
-  <a href="https://github.com/Nick2bad4u/nick2bad4u/blob/main/LICENSE.md" title="View project license">
-    <img alt="Badge: License (UnLicense, flat-square style)" src="https://img.shields.io/github/license/nick2bad4u/nick2bad4u?style=flat-square&logo=unlicense" title="License: UnLicense">
-  </a>
-  <a href="https://prettier.io/" title="Code Style: Prettier">
-    <img alt="Badge: Code Style (Prettier, pink, flat-square style)" src="https://img.shields.io/badge/code%20style-prettier-ff69b4.svg?style=flat-square" title="Code Style: Prettier">
-  </a>
-  <a href="https://github.com/Nick2bad4u/nick2bad4u/blob/main/README.md" title="Made with Markdown">
-    <img alt="Badge: Made with (Markdown, blue, flat-square style)" src="https://img.shields.io/badge/made%20with-Markdown-blue?style=flat-square" title="Made with Markdown">
-  </a>
-  <a href="https://github.com/Nick2bad4u/nick2bad4u/forks" title="Forks">
-    <img alt="Badge: Forks (dynamic count, flat-square style)" src="https://img.shields.io/github/forks/nick2bad4u/nick2bad4u?style=flat-square&logo=greasyfork" title="Forks">
+    <img
+      src="https://views.igorkowalczyk.dev/api/badge/nick2bad4u-Modern?style=flat"
+      alt="Badge: Repository Views (dynamic count, flat style)"
+    />
   </a>
   <a href="https://nick2bad4u.github.io/Nick2bad4u/" title="GitHub Pages Status">
-    <img alt="Badge: GitHub Pages Status (dynamic, flat-square style)" src="https://img.shields.io/website?url=https://nick2bad4u.github.io/Nick2bad4u/&up_message=Online&down_message=Offline&style=flat-square&logo=github&label=Github%20Pages&cacheSeconds=6000&link=https://nick2bad4u.github.io/Nick2bad4u/" title="GitHub Pages Status">
-  </a>
-</p>
-<div align="center">
-  <a href="https://wigle.net">
     <img
-      src="https://wigle.net/bi/riIOtiMm+Dry0OgsjGgSww.png?"
-      alt="Wigle.net Stats"
+      src="https://img.shields.io/website?url=https://nick2bad4u.github.io/Nick2bad4u/&up_message=Online&down_message=Offline&style=flat-square&logo=github&label=Github%20Pages&cacheSeconds=6000&link=https://nick2bad4u.github.io/Nick2bad4u/"
+      alt="Badge: GitHub Pages Status (dynamic, flat-square style)"
     />
   </a>
-</div>
+</p>
 
 <div align="center">
   <a href="https://git.io/typing-svg">
@@ -100,13 +58,29 @@
 </div>
 
 <div align="center">
-  <a href="https://wakatime.com">
+  <img
+    src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=nick2bad4u&theme=github_dark"
+    width="auto"
+    alt="Profile Details 2"
+  />
+  <img
+    src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=nick2bad4u&theme=github_dark"
+    width="auto"
+    alt="Language Stats by Repo"
+  />
+  <img
+    src="http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=nick2bad4u&theme=github_dark"
+    width="auto"
+    alt="Most Commit Language"
+  />
     <img
-      height="600px"
-      src="https://wakatime.com/share/@Typpi/e0c60bae-ea55-4dcc-a316-3c348a8850ea.svg"
-      alt="WakaTime"
-    />
-  </a>
+    src="https://streak-stats.demolab.com?user=Nick2bad4u&theme=dracula&border_radius=5&date_format=M%20j%5B%2C%20Y%5D&mode=weekly&background=45%2C6123EB%2C000000&fire=EB0000&border=FF0000"
+    alt="streak stats graph"
+  />
+</div>
+
+<div align="center">
+
 </div>
 
 <div align="center">
@@ -118,9 +92,12 @@
 </div>
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=nick2bad4u&theme=react-dark&bg_color=20232a&hide_border=true" alt="GitHub Activity Graph" />
-  <br />
-  </div>
+  <img
+    src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Nick2bad4u&theme=github_dark"
+    width="auto"
+    alt="Profile Details"
+  />
+    </div>
 
 <div align="center">
     <img
@@ -129,13 +106,11 @@
       width="100%"
     />
 </div>
+
 <div align="center">
-  <img
-    src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Nick2bad4u&theme=bear"
-    width="auto"
-    alt="Profile Details"
-  />
-    </div>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Nick2bad4u&bg_color=0d111700&color=58a6ff&line=1f6feb&point=58a6ff&area=true&hide_border=true" alt="GitHub Activity Graph" />
+  <br />
+  </div>
 
 <div align="center">
     <img
@@ -144,60 +119,6 @@
       width="100%"
     />
 </div>
-
-<picture>
-    <source
-      media="(prefers-color-scheme: dark)"
-      srcset="https://github.com/Nick2bad4u/UserStyles/blob/output/github-contribution-grid-snake-dark.svg"
-    />
-    <source
-      media="(prefers-color-scheme: light)"
-      srcset="https://github.com/Nick2bad4u/UserStyles/blob/output/github-contribution-grid-snake.svg"
-    />
-    <img
-      alt="github-snake"
-      src="github-snake.svg"
-    />
-  </picture>
-</div>
-
-<div align="center">
-    <img
-      src="https://github.com/Nick2bad4u/Nick2bad4u/blob/main/assets/GitHubProfileLines%20(2).gif?raw=true"
-      alt="Repository Banner Line Animation"
-      width="100%"
-    />
-</div>
-
-<div align="center">
-  <a href="https://git.io/typing-svg">
-    <img
-      src="https://readme-typing-svg.demolab.com?font=Roboto+Mono&size=30&color=C1587A&center=true&vCenter=true&repeat=false&width=435&lines=GitHub+Trophies"
-      alt="Typing SVG"
-    />
-  </a>
-</div>
-
-<div align="center">
-  <img
-    src="https://github-profile-trophy.vercel.app/?username=nick2bad4u&theme=onedark&row=6&column=3"
-    alt="trophy list"
-  />
-</div>
-
-<div align="center">
-  <img
-    src="https://streak-stats.demolab.com?user=Nick2bad4u&theme=dracula&border_radius=5&date_format=M%20j%5B%2C%20Y%5D&mode=weekly&background=45%2C6123EB%2C000000&fire=EB0000&border=FF0000"
-    alt="streak stats graph"
-  />
-</div>
-
-<div align="center">
-    <img
-      src="https://github.com/Nick2bad4u/Nick2bad4u/blob/main/assets/GitHubProfileLines%20(16).gif?raw=true"
-      alt="Repository Banner Line Animation"
-      width="100%"
-    />
 </div>
 
 <div align="center">
@@ -205,6 +126,15 @@
     <img
       src="https://readme-typing-svg.demolab.com?font=Roboto+Mono&size=30&color=C1587A&center=true&vCenter=true&repeat=false&width=435&lines=Things+I+do"
       alt="Typing SVG"
+    />
+  </a>
+</div>
+
+<div align="center">
+  <a href="https://wigle.net">
+    <img
+      src="https://wigle.net/bi/riIOtiMm+Dry0OgsjGgSww.png?"
+      alt="Wigle.net Stats"
     />
   </a>
 </div>
@@ -416,19 +346,41 @@
 </p>
 
 <div align="center">
+  <a href="https://wakatime.com/share/@Typpi/995a4535-792f-4171-b1a5-8e84d0662ec2.svg">
     <img
-      src="https://github.com/Nick2bad4u/Nick2bad4u/blob/main/assets/GitHubProfileLines%20(19).gif?raw=true"
-      alt="Repository Banner Line Animation"
-      width="100%"
+      height="auto"
+      width="45%"
+      src="https://wakatime.com/share/@Typpi/995a4535-792f-4171-b1a5-8e84d0662ec2.svg"
+      alt="WakaTime"
     />
+  </a>
+    <a href="https://wakatime.com/share/@Typpi/479bb081-fb9f-4904-8e41-96034b5c98b6.svg">
+    <img
+      height="auto"
+      width="45%"
+      src="https://wakatime.com/share/@Typpi/479bb081-fb9f-4904-8e41-96034b5c98b6.svg"
+      alt="WakaTime"
+    />
+  </a>
 </div>
 
 <div align="center">
+  <a href="https://wakatime.com/share/@Typpi/25d507b5-6ac2-4920-95ce-e23b79e6720a.svg">
     <img
-      src="https://raw.githubusercontent.com/Nick2bad4u/Nick2bad4u/refs/heads/main/metrics.user.svg"
-      alt="Github Metrics"
-      width="100%"
+      height="auto"
+      width="45%"
+      src="https://wakatime.com/share/@Typpi/25d507b5-6ac2-4920-95ce-e23b79e6720a.svg"
+      alt="Last 30 Days Coding Activity"
     />
+  </a>
+    <a href="https://wakatime.com/share/@Typpi/e3b324ef-2b33-4549-9172-9e25726d30d7.svg">
+    <img
+      height="auto"
+      width="45%"
+      src="https://wakatime.com/share/@Typpi/e3b324ef-2b33-4549-9172-9e25726d30d7.svg"
+      alt="Editors Over Time"
+    />
+  </a>
 </div>
 
 <div align="center">
