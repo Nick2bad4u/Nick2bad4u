@@ -345,11 +345,19 @@
   </a>
 </p>
 
+<details>
+  <summary align="center">
+    <img
+      src="https://readme-typing-svg.herokuapp.com/?font=CodeNewRoman+Mono&duration=1500&pause=1500&color=F7B1C3&vCenter=true&multiline=true&width=435&height=60&lines=Wakatime+Charts+%F0%9F%93%88;%3C--------+%F0%9F%91%86+Click+to+Expand!"
+      alt="Typing SVG"
+    />
+  </summary>
+
 <div align="center">
   <a href="https://wakatime.com/share/@Typpi/995a4535-792f-4171-b1a5-8e84d0662ec2.svg">
     <img
       height="auto"
-      width="45%"
+      width="85%"
       src="https://wakatime.com/share/@Typpi/995a4535-792f-4171-b1a5-8e84d0662ec2.svg"
       alt="WakaTime"
     />
@@ -357,7 +365,7 @@
     <a href="https://wakatime.com/share/@Typpi/479bb081-fb9f-4904-8e41-96034b5c98b6.svg">
     <img
       height="auto"
-      width="45%"
+      width="85%"
       src="https://wakatime.com/share/@Typpi/479bb081-fb9f-4904-8e41-96034b5c98b6.svg"
       alt="WakaTime"
     />
@@ -368,7 +376,7 @@
   <a href="https://wakatime.com/share/@Typpi/25d507b5-6ac2-4920-95ce-e23b79e6720a.svg">
     <img
       height="auto"
-      width="45%"
+      width="85%"
       src="https://wakatime.com/share/@Typpi/25d507b5-6ac2-4920-95ce-e23b79e6720a.svg"
       alt="Last 30 Days Coding Activity"
     />
@@ -376,13 +384,13 @@
     <a href="https://wakatime.com/share/@Typpi/e3b324ef-2b33-4549-9172-9e25726d30d7.svg">
     <img
       height="auto"
-      width="45%"
+      width="85%"
       src="https://wakatime.com/share/@Typpi/e3b324ef-2b33-4549-9172-9e25726d30d7.svg"
       alt="Editors Over Time"
     />
   </a>
 </div>
-
+</details>
 <div align="center">
     <img
       src="https://github.com/Nick2bad4u/Nick2bad4u/blob/main/assets/GitHubProfileLines%20(12).gif?raw=true"
