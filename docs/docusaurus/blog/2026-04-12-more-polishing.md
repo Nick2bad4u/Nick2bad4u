@@ -1,7 +1,7 @@
 ---
 slug: ongoing-evolution
 title: "The Ongoing Evolution of Our Documentation"
-authors: [Nick2bad4u]
+authors: [nick]
 tags: [docusaurus, evolution, docs]
 ---
 

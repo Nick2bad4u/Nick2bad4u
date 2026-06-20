@@ -1,7 +1,7 @@
 ---
 slug: showcase-page
 title: "New Showcase Page & Interactive UI"
-authors: [Nick2bad4u]
+authors: [nick]
 tags: [showcase, ui, react, docusaurus]
 ---
 
